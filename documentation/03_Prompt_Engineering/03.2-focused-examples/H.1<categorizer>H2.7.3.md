@@ -297,8 +297,6 @@ For detailed performance metrics and further analysis of H2.7.3, including forma
 
 ---
 
-## Analysis of Key Differences
-... (rest of your document) ...
 
 ## Analysis of Key Differences
 
