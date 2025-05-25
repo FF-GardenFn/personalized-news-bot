@@ -9,7 +9,9 @@
 
 The News Bot transforms raw news data into personalized, actionable intelligence through a sophisticated multi-agent AI pipeline, helping users navigate information overload with precisely curated content relevant to their professional and personal interests.
 
-**Note**: This is an ongoing personal project. The documentation/ directory has been open-sourced solely for the purpose of evaluating my work in current job applications. All example outputs are genuine (redacted where appropriate); some sections are still in active development.
+ > **Disclaimer:** This is an independent personal project. The documentation folder was opened publicly **solely** for demonstration in job applications. The project’s source code remains private. No affiliation with any specific employer.
+>
+> All example outputs are genuine (redacted where appropriate); some sections are still in active development.
 
 ## Table of Contents
 * [Project Vision & Goals](#project-vision--goals)
@@ -139,9 +141,7 @@ The News Bot is currently in active development (Version H2.7.3), with several k
 
 ## Model Evolution & Versioning
 
-Our iterative development journey (from initial Type-S models to the current Type-H2.7.3) is detailed through version-specific design documents and performance analyses, primarily found within the `[04_Architecture/](04_Architecture/)` and `[05_Analysis/]` directories. These sections explain the evolution of strategies, design choices, and outcomes, often referencing earlier stages.
-
-For those interested in the most granular historical data, a `legacy/` directory archives raw materials from these earlier iterations, including detailed logs, original development notes, and deprecated code segments. This provides a comprehensive trail of the incremental improvements made in performance, cost-efficiency, latency, factual accuracy, and safety metrics over the project's nine-month development.
+Our iterative development journey over nine months  (from initial Type-S models to the current Type-H2.7.3) is detailed through version-specific design documents and performance analyses, primarily found within the `[04_Architecture/](04_Architecture/)` and `[05_Analysis/]` directories. These sections provide a comprehensive trail of the strategies, design choices, and incremental improvements made in performance, cost-efficiency, latency, factual accuracy, and safety metrics.
 
 ---
 
