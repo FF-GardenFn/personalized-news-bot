@@ -35,7 +35,6 @@ The News Bot is a multi-agent AI system designed to transform raw news into pers
                         │  Prompt         │
                         │  Engineering    │
                         └─────────────────┘
-
 ```
 
 This case study provides a walkthrough of key prompt engineering advancements and architectural evolutions within the News Bot system, illustrating the journey from its early conceptualizations (e.g., S.1 version agents) to the more sophisticated, modular H.2.7.3 iteration. The central objective throughout this development has been to leverage meticulous prompt engineering within a multi-agent framework to transform a deluge of raw information into personalized, actionable intelligence. Success is primarily measured by the system's ability to increase the Actionable Insight Rate (AIR), reflecting true personalization and utility for the recipient, and to enhance overall system reliability and insight quality.
@@ -258,12 +257,42 @@ PaperID 1 (arXiv:xxxx.xxxx): [Title, Authors, Summary of ArXiv paper]
 
 The prompt then tasks the LLM not just to present these facts, but to provide an explanation of the agreement or disagreement, and to assign a confidence level.
 
-**Conceptual Prompt for Triangulation Explanation**:
+**Triangulation Prompt from H.2.7.3**:
 ```
-// System receives structured data: NewsItem1, FactCheck1, NewsItem2 (alternative), FactCheck2, DivergenceScore.
-// LLM Prompt (Simplified)
-Given the primary news item, its fact-check, an alternative news source covering the same event, and its fact-check, along with the calculated divergence in their credibility:
-Provide a concise explanation (2-3 sentences) assessing the degree of agreement or disagreement between these sources regarding the key claims of the event. Note any significant differences in framing or presented facts. Based on this, state the overall confidence level (High, Medium, Low) in the primary claims.
+Output a JSON array containing objects—no explanations, no table formats, no column headers.
+CRITICAL: Your response MUST start with '[' and end with ']' to be valid JSON.
+CRITICAL: Every object must be wrapped with '{{' and '}}' and properly nested in the array.
+
+Task: Compare fact-check results from multiple sources with different political slants.
+For each headline id, output an object in this format:
+[
+  {
+    "id": 1,
+    "source_1_credibility": 0.85,
+    "source_2_credibility": 0.75,
+    "divergence_score": 0.10,
+    "confidence_level": "Medium",
+    "explanation": "Minor disagreement on economic impact claims"
+  },
+  {
+    "id": 2,
+    "source_1_credibility": 0.90,
+    "source_2_credibility": 0.88,
+    "divergence_score": 0.02,
+    "confidence_level": "High",
+    "explanation": "Strong agreement on factual claims across political spectrum"
+  }
+]
+
+Method:
+1. source_1_credibility = credibility score from first source (0-1 float)
+2. source_2_credibility = credibility score from second source (0-1 float)
+3. divergence_score = absolute difference between source credibility scores
+4. confidence_level = "High" if divergence_score < 0.05, "Medium" if < 0.15, "Low" otherwise
+5. explanation = brief explanation of the agreement or disagreement between sources
+
+Low divergence scores indicate high confidence in the factual accuracy of the news item,
+as sources with different political slants agree on the facts.
 ```
 
 **Impact**: This multi-layered approach, combining detailed individual fact-checks with a prompt-driven comparative analysis (triangulation), significantly enhances the system's ability to present a nuanced view of information reliability. It moves beyond simple true/false assessments to understanding why sources might differ, a critical component for sophisticated decision-making and a more trustworthy AI partner.
@@ -544,7 +573,7 @@ The evolution towards a system of specialized agents, each driven by tailored pr
 │         └────▶│ FactChecker │◀───────┘                    │                 │
 │               └─────┬───────┘                             │                 │
 ├─────────────────────┼─────────────────────────────────────┼─────────────────┤
-│ WAVE 2 (Refined Verification - depends on FactChecker)                      │
+│ WAVE 2 (Refined Verification - depends on FactChecker)    │                 │
 │                     │     ┌─────────────┐                 │                 │
 │                     └────▶│ Triangulator│◀────────────────┘                 │
 │                           └─────┬───────┘                                   │
@@ -555,12 +584,12 @@ The evolution towards a system of specialized agents, each driven by tailored pr
 │   └─────┬───────┘ └─────┬───────┘ └─────┬─────┘ └─────┬─────┘ └────┬────┘   │
 │         └────────┬──────┴─────────────┬─┴─────────────┬┴───────────┘        │
 ├──────────────────┼────────────────────┼─────────────────┼───────────────────┤
-│ WAVE 4 (Final Briefing Generation - depends on Wave 3 & Recommender)         │
+│ WAVE 4 (Final Briefing Generation - depends on Wave 3 & Recommender)        │
 │                  └────────────────────┼─────────────────┘                   │
-│                                     ▼                                       │
-│                               ┌───────────┐                                 │
-│                               │ Summarizer│                                 │
-│                               └───────────┘                                 │
+│                                       ▼                                     │
+│                                 ┌───────────┐                               │
+│                                 │ Summarizer│                               │
+│                                 └───────────┘                               │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -573,14 +602,38 @@ The evolution towards a system of specialized agents, each driven by tailored pr
 1. **Agent Registry**: A central place to define and access all available specialized agents.
 2. **Explicit Dependency Definition**: Each agent declares its dependencies on other agents. For instance, the FactCheckerAgent depends on WebSearcherAgent, and TriangulatorAgent depends on FactCheckerAgent.
 
-Conceptual Code Snippet for Dependency Definition:
+Actual Agent Configuration with Dependencies from H.2.7.3:
 ```python
-# From agent configuration
+# core/orchestration/pipeline/agents.py
 config = {
-    "fact_checker": {"dependencies": ["web_searcher"]},
-    "triangulator": {"dependencies": ["fact_checker"]},
-    "summarizer": {"dependencies": ["synthesizer", "linkage_detector", ...]},
-    # ... other agents
+    "categorizer": {
+        "model": GPT_MODEL_CATEGORIZER,
+        "dependencies": []
+    },
+    "web_searcher": {
+        "model": GPT_MODEL_WEB_SEARCHER,
+        "dependencies": []
+    },
+    "fact_checker": {
+        "model": GPT_MODEL_FACT_CHECKER,
+        "dependencies": ["web_searcher"]
+    },
+    "triangulator": {
+        "model": GPT_MODEL_TRIANGULATION,
+        "dependencies": ["fact_checker"]
+    },
+    "recommender": {
+        "model": GPT_MODEL_RECOMMENDER,
+        "dependencies": []
+    },
+    "synthesizer": {
+        "model": GPT_MODEL,
+        "dependencies": list(first_wave.union(fact_checker_wave).union(triangulator_wave))
+    },
+    "summarizer": {
+        "model": GPT_MODEL_SUMMARIZER,
+        "dependencies": list(third_wave.union({"recommender"}))
+    }
 }
 ```
 
@@ -612,15 +665,15 @@ The journey of the News Bot, from its early S.1 concepts to the intricacies of t
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                       KEY TAKEAWAYS & INSIGHTS                          │
 │                                                                         │
-│  ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐       │
+│  ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐        │
 │  │ Specialized     │   │ Structured      │   │ Multi-Layered    │       │
 │  │ Agent Prompts   │   │ JSON Outputs    │   │ Enforcement      │       │
-│  └─────────────────┘   └─────────────────┘   └─────────────────┘       │
+│  └─────────────────┘   └─────────────────┘   └─────────────────┘        │
 │                                                                         │
-│  ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐       │
-│  │ Dependency-     │   │ Semantic        │   │ Continuous      │       │
-│  │ Aware Execution │   │ Foundation      │   │ Evaluation      │       │
-│  └─────────────────┘   └─────────────────┘   └─────────────────┘       │
+│  ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐        │
+│  │ Dependency-     │   │ Semantic        │   │ Continuous      │        │
+│  │ Aware Execution │   │ Foundation      │   │ Evaluation      │        │
+│  └─────────────────┘   └─────────────────┘   └─────────────────┘        │
 │                                                                         │
 │           All driving towards increased Actionable Insight Rate         │
 └─────────────────────────────────────────────────────────────────────────┘
