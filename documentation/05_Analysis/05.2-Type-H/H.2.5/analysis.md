@@ -10,7 +10,7 @@ Type-H2.5 experienced complete upstream pipeline failure with 100% of analytical
 
 Key Metrics:
 - Pipeline Integrity: 0% (all agents failed)
-- Cost: $0.001 per brief (95% reduction)
+- Cost: $0.001 per brief (Summarizer only, most agents failed)
 - Coverage: 50% (only 5/10 items processed)
 - Quality: Unmeasurable (operating on default data)
 
@@ -55,7 +55,7 @@ Type-H2.5 also introduced a more efficient model selection, using gpt-4o-mini fo
 | **Prompt Tokens** | 3,304 (Persona 1), 3,321 (Persona 3) | 1,444 (Persona 1), 1,481 (Persona 3) | H2.5 prompt tokens significantly inflated due to inclusion of extensive errored upstream data |
 | **Total Tokens** | 4,421 (Prompt: 3,304, Completion: 1,117) for Persona 1, 4,401 (Prompt: 3,321, Completion: 1,080) for Persona 3 | 2,832 (Prompt: 1,444, Completion: 1,388) for Persona 1, 2,404 (Prompt: 1,481, Completion: 923) for Persona 3 | H2.5 had higher token usage despite processing only 5 items  |
 | **Execution Time** | 24.50 s (Persona 1), 18.20 s (Persona 3) | Not specified for Summarizer alone | Execution time varies by persona |
-| **Cost** | $0.00117 (Persona 1), similar for Persona 3 | $0.02118 (estimated) | H2.5 achieved significant cost reduction |
+| **Cost** | $0.00117 (Persona 1), similar for Persona 3 | $0.02118 (estimated) | H2.5 used a cheaper model but had higher token usage |
 
 **Note:** These metrics represent only the Summarizer agent, not the full pipeline. Complete pipeline metrics for H2.5 are not available due to upstream failures.
 
@@ -244,7 +244,7 @@ The "is_synthetic": true flag reveals a fundamental safety issue:
 | **Prompt Tokens** | 3,321 | Not specified in H.1 Analysis | H2.5 prompt tokens significantly inflated due to inclusion of extensive errored upstream data |
 | **Total Tokens** | 4,401 (Prompt: 3,321, Completion: 1,080) | 2,478 | H2.5 had higher token usage despite processing similar number of items (5 vs. 4) |
 | **Execution Time** | 18.20 s | Not specified for Summarizer alone | H2.5 was faster with the lighter model |
-| **Cost** | $0.00114 | $0.02188 | H2.5 achieved significant cost reduction |
+| **Cost** | $0.00114 | $0.02188 | H2.5 used a cheaper model but had higher token usage |
 
 **Note:** These metrics represent only the Summarizer agent, not the full pipeline. Complete pipeline metrics for H2.5 are not available due to upstream failures.
 
@@ -374,7 +374,6 @@ This section directly uses data from the ## MARKET DATA input (LMT, RTX, GD, BA 
 Both persona tests revealed consistent strengths and weaknesses in the H2.5 system:
 
 #### Strengths:
-- **Cost Efficiency:** Extremely cost-effective at the summarizer level ($0.00117 and $0.00114)
 - **Resilience:** Produced coherent summaries despite severely compromised inputs
 - **Market Data Handling:** Successfully ingested and presented the MARKET DATA, though integration with news items could be improved
 - **Format Adherence:** Maintained proper formatting and structure
