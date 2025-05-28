@@ -58,7 +58,7 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 | Dimension | Metric | Value | Tier Target | Status | Notes |
 |-----------|--------|-------|-------------|--------|-------|
-| **Format Compliance** | Schema Errors | 0 violations | 0 per 100 briefs (Tier 3) | ✅ Pass | All agent outputs conform to specified formats for the reviewed sessions. Broader testing of H.1 indicated an 87.3% JSON-schema pass rate overall. |
+| **Format Compliance** | Schema Errors | 0 violations | 0 per 100 briefs (Tier 3) | ✅ Pass | All agent outputs conform to specified formats for the reviewed sessions. |
 
 ### 3. Evaluation of Individual Agent Outputs
 
@@ -168,7 +168,7 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 ## Analysis of H.1 Session for Persona 3 (Model Architect)
 
-**Recipient Profile (Persona 3):** "Mr. F" (f@mail.mcgill.ca), Model Architect at Anthropic  
+**Recipient Profile (Persona 3):** "Mr. F", Model Architect at Anthropic  
 **Interests:** RLHF, constitutional AI, alignment techniques, anthropic news, AI, Machine learning algorithms, Benchmark techniques, Business, Politics, Science  
 
 
@@ -261,11 +261,11 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 **Rationale and Qualitative Context for Metric Scores**
 
-- **AIR (Actionable Insight Rate)**: Very high potential for the summarized items due to strong personalization and specific actionable takeaways. However, the 40% completion rate drastically reduces the overall AIR potential of the brief.
+- **AIR (Actionable Insight Rate)**: Very high potential for the summarized items (this implementation) due to strong personalization and specific actionable takeaways. However, the 40% completion rate drastically reduces the overall AIR potential of the brief.
 
-- **Relevance@3**: The items summarized are among the highest relevance as per the Categorizer (IterAlign, OpenRLHF both got 5/5). If the top 3 were consistently summarized, this would score very well.
+- **Relevance@3**: The items summarized are among the highest relevance as per the Categorizer (IterAlign and OpenRLHF both received 5/5). This is a strong sign. However, accurate analysis is unfortunately obfuscated by the lack of all summarized items from the Summarizer.
 
-- **FactScore**: The FactChecker component is strong. The Summarizer, for the items it covered, maintained factual integrity based on the input. The main "failure" lies in omission and not distortion.
+- **FactScore**: The FactChecker showed strength.The Summarizer, for the items covered, maintained factual integrity based on the input. The main "failure" once again, lies in omission and not distortion.
 
 - **Embedding Novelty Δ**: The Recommender provided highly relevant and novel avenues for Mr. F. The Summarizer also provided novel connections to his role for the items it covered.
 
@@ -320,7 +320,7 @@ The H.1 prototype successfully demonstrated the potential of a multi-agent appro
 
 Despite these challenges, the system showed remarkable strengths in personalization quality, with Persona 3 (Model Architect) receiving highly tailored content that leveraged domain-specific knowledge. The Categorizer and Recommender agents demonstrated excellent understanding of recipient interests, while the Summarizer provided strong actionable insights for the items it did process.
 
-Based on the analysis provided, the subsequent versions should focus on addressing these critical failures while preserving these strengths:
+Based on the analysis provided, the subsequent versions will focus on addressing these critical failures while preserving these strengths:
 
 ### Persona Performance Comparison
 
@@ -359,7 +359,7 @@ Both persona tests revealed consistent strengths and weaknesses in the H.1 syste
 
 >**Note**: For more details about the migration please see  [H.2 Migration Document](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.2/migration.md). 
 
-The H.1 prototype demonstrates the potential of a multi-agent approach but requires significant technical improvements before it can meet all Tier 0 and Tier 1 targets. These findings should inform future development, with a focus on implementing shared system-level prompts and improving agent coordination.
+The H.1 prototype demonstrates the potential of a multi-agent approach but requires significant technical improvements before it can meet all Tier 0 and Tier 1 targets. These findings inform future development, with a focus on implementing shared system-level prompts and improving agent coordination.
 
 
 ## H.1 Prompt Engineering Analysis

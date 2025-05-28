@@ -20,14 +20,14 @@ Primary failures include:
   - Summarizer: Incorrect item sorting due to unreliable importance scores
 - Quality Regressions: FactChecker less nuanced (no "concerns" detailed)
 
-While H.2 demonstrated successful efficiency optimizations, it is not viable due to new critical functional bugs and remaining performance target misses.
+Type-H.2 must be rejected. However, its demonstrated efficiency improvements and promising new capabilities (particularly the cross-headline insights from the Synthesis Agent) should form the foundation of subsequent iterations.
 
 ## Metrics Dashboard
 
 | Metric | Value (P1/P3) | Tier Target | Status | Key Finding |
 |--------|---------------|-------------|--------|-------------|
-| **Tok/brief** | 7,441-7,619 | ≤ 7,000 (Tier 1) | ❌ Hard Fail | ~6-9% over budget |
-| **p95 Latency** | 31.34-36.20s | ≤ 30s (Tier 0) | ❌ Hard Fail | ~4-21% over target |
+| **Tok/brief** | 7,441-7,619 | ≤ 7,000 (Tier 1) | 🔴 Hard Fail | ~6-9% over budget |
+| **p95 Latency** | 31.34-36.20s | ≤ 30s (Tier 0) | 🔴 Hard Fail | ~4-21% over target |
 | **Cost $/brief** | $0.00186-0.00193 | ≤ $0.05 (Tier 0) | ✅ Pass | 96% under budget |
 | **Pipeline Integrity** | 2 critical errors | 0 errors | ❌ Fail | Synthesis→Summarizer broken |
 | **Personalization** | {recipient_short} bug | 100% success | ❌ Fail | Placeholder not replaced |
@@ -57,8 +57,8 @@ The following sections provide in-depth analysis of Type-H.2 performance with di
 
 | Metric | Value for H.2 | Tier Target | Status | Notes |
 |--------|---------------|-------------|--------|-------|
-| **Tok/brief** | 7,441 tokens | ≤ 7,000 (Tier 1 Hard Fail) | ❌ Hard Fail | Slightly exceeds target but significantly lower than H.1 (8,308) |
-| **p95 Latency** | 31.34 s | ≤ 30 s (Tier 0) | ❌ Hard Fail | Improved from H.1 (50.29s) but still misses target |
+| **Tok/brief** | 7,441 tokens | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Slightly exceeds target but significantly lower than H.1 (8,308) |
+| **p95 Latency** | 31.34 s | ≤ 30 s (Tier 0) | 🔴 Hard Fail | Improved from H.1 (50.29s) but still misses target |
 | **Cost $/brief** | $0.00186 | ≤ $0.05 (Tier 0) | ✅ Pass | Drastically reduced from H.1 ($0.044) due to gpt-4o-mini |
 
 **Token and Cost Breakdown:**
@@ -172,17 +172,17 @@ The following sections provide in-depth analysis of Type-H.2 performance with di
 | Tier | Metric | Target | Session Value  | Status | Outcome |
 |------|--------|--------|----------------|--------|---------|
 | 0 | AIR | ≥ 0.25 | Not Measurable | N/A | N/A |
-| 0 | p95 Latency | ≤ 30 s | 31.34 s        | ❌ Hard Fail | BLOCK |
+| 0 | p95 Latency | ≤ 30 s | 31.34 s        | 🔴 Hard Fail | BLOCK |
 | 0 | Cost / brief | ≤ $0.05 | $0.00186       | ✅ Pass | Pass |
 | 0 | FactScore | ≥ 0.85 | Not Measurable | N/A | N/A |
 | 1 | Relevance@3 | ≥ 4.0 | Not Measurable | N/A | N/A |
 | 1 | Chaos Catch Rate | ≥ 0.90 | Not Measured   | N/A | N/A |
-| 1 | Tok/brief | ≤ 7,000 | 7,441          | ❌ Hard Fail | BLOCK |
+| 1 | Tok/brief | ≤ 7,000 | 7,441          | 🔴 Hard Fail | BLOCK |
 | 2 | JSON-schema Errors | 0 per 100 | 0              | ✅ Pass | Pass |
 
 **Key Issues:**
-- ❌ **Hard Fail:** p95 Latency (31.34s vs ≤30s target)
-- ❌ **Hard Fail:** Token usage (7,441 vs ≤7,000 target)
+- 🔴 **Hard Fail:** p95 Latency (31.34s vs ≤30s target)
+- 🔴 **Hard Fail:** Token usage (7,441 vs ≤7,000 target)
 - ❌ **Critical Errors:** 
   - Categorizer datetime calculation issue
   - Synthesis insights not passed to Summarizer
@@ -199,8 +199,8 @@ The following sections provide in-depth analysis of Type-H.2 performance with di
 
 | Metric | Value for H.2 | Tier Target | Status | Notes |
 |--------|---------------|-------------|--------|-------|
-| **Tok/brief** | 7,619 tokens | ≤ 7,000 (Tier 1 Hard Fail) | ❌ Hard Fail | Slightly exceeds target but significantly lower than H.1 |
-| **p95 Latency** | 36.20 s | ≤ 30 s (Tier 0) | ❌ Hard Fail | Improved from H.1 P3 (49.45s) but still misses target; also worse than H.2 P1 (31.34s) |
+| **Tok/brief** | 7,619 tokens | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Slightly exceeds target but significantly lower than H.1 |
+| **p95 Latency** | 36.20 s | ≤ 30 s (Tier 0) | 🔴 Hard Fail | Improved from H.1 P3 (49.45s) but still misses target; also worse than H.2 P1 (31.34s) |
 | **Cost $/brief** | $0.00193 | ≤ $0.05 (Tier 0) | ✅ Pass | Drastically reduced from H.1 ($0.0457) due to gpt-4o-mini |
 
 **Token and Cost Breakdown:**
@@ -284,17 +284,17 @@ The following sections provide in-depth analysis of Type-H.2 performance with di
 | Tier | Metric | Target | Session Value  | Status | Outcome |
 |------|--------|--------|----------------|--------|---------|
 | 0 | AIR | ≥ 0.25 | Not Measurable | N/A | N/A |
-| 0 | p95 Latency | ≤ 30 s | 36.20 s        | ❌ Hard Fail | BLOCK |
+| 0 | p95 Latency | ≤ 30 s | 36.20 s        | 🔴 Hard Fail | BLOCK |
 | 0 | Cost / brief | ≤ $0.05 | $0.00193       | ✅ Pass | Pass |
 | 0 | FactScore | ≥ 0.85 | Not Measurable | N/A | N/A |
 | 1 | Relevance@3 | ≥ 4.0 | Not Measurable | N/A | N/A |
 | 1 | Chaos Catch Rate | ≥ 0.90 | Not Measured   | N/A | N/A |
-| 1 | Tok/brief | ≤ 7,000 | 7,619          | ❌ Hard Fail | BLOCK |
+| 1 | Tok/brief | ≤ 7,000 | 7,619          | 🔴 Hard Fail | BLOCK |
 | 2 | JSON-schema Errors | 0 per 100 | 0              | ✅ Pass | Pass |
 
 **Key Issues:**
-- ❌ **Hard Fail:** p95 Latency (36.20s vs ≤30s target)
-- ❌ **Hard Fail:** Token usage (7,619 vs ≤7,000 target)
+- 🔴 **Hard Fail:** p95 Latency (36.20s vs ≤30s target)
+- 🔴 **Hard Fail:** Token usage (7,619 vs ≤7,000 target)
 - ❌ **Critical Errors:** Same issues as Persona 1 (datetime calculation, pipeline, personalization, ordering)
 
 ## H.2 Overall System Assessment
