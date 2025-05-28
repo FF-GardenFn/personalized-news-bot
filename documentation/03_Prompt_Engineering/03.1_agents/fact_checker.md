@@ -16,7 +16,7 @@ The Fact Checker Agent serves several essential functions within the News Bot ec
 
 ## Evolution of Prompting Strategies
 
-### H1 Version (Initial Implementation)
+### H.01 Version (Initial Implementation)
 
 In the earliest version of the News Bot system, the Fact Checker Agent used basic prompting with minimal guidance:
 
@@ -117,13 +117,13 @@ Ensure your fact-checking is tailored to the recipient's profession and interest
 
 The output provided basic fact-checking but lacked depth and nuance. The explanations were brief and didn't provide detailed reasoning for the ratings or concerns.
 
-### H2 Version (Improved Structure)
+### H.02 Version (Improved Structure)
 
-The H2 version introduced more structured prompting with clearer instructions and persona guidance:
+The H.02 version introduced more structured prompting with clearer instructions and persona guidance:
 
-#### H2 Prompt Example:
+#### H.02 Prompt Example:
 ```
-## FactChecker-H2 Interaction for h@gmail.com – 2025-05-05 19:40:03
+## FactChecker-H.02 Interaction for h@gmail.com – 2025-05-05 19:40:03
 
 ### Prompt
 
@@ -269,9 +269,9 @@ Ensure your entire response is ONLY the JSON array as described in the initial i
 
 The output provided basic fact-checking but lacked depth and nuance. The explanations were brief and didn't provide detailed reasoning for the ratings or concerns.
 
-## H.2.7.3 Version
+## H.02.7.3 Version
 
-By version H.2.7.3, the Fact Checker Agent evolved into a more sophisticated component with the ability to trinagulate ( calls the trinagulator agent ) producing therefore a detailed credibility assessments, political slant analysis, and market impact evaluations.
+By version H.02.7.3, the Fact Checker Agent evolved into a more sophisticated component with the ability to trinagulate ( calls the trinagulator agent ) producing therefore a detailed credibility assessments, political slant analysis, and market impact evaluations.
 
 ### Persona 1 Example 
 

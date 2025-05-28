@@ -88,13 +88,13 @@ To facilitate efficient review, I recommend the following path through the docum
 
 ## Prompt Engineering Highlights
 
-This project showcases the evolution of prompt engineering techniques across multiple system versions (H1 → H2.7.3):
+This project showcases the evolution of prompt engineering techniques across multiple system versions (H.01 → H.02.7.3):
 
-- **H1**: Basic role-specific prompts with limited structure
-- **H2**: Improved structure with shared system-level prompts
-- **H2.5**: Enhanced with market data context and few-shot examples
-- **H2.7**: Advanced function-calling and explicit constraints
-- **H2.7.3**: Sophisticated templating system with standardized formats
+- **H.01**: Basic role-specific prompts with limited structure
+- **H.02**: Improved structure with shared system-level prompts
+- **H.02.5**: Enhanced with market data context and few-shot examples
+- **H.02.7**: Advanced function-calling and explicit constraints
+- **H.02.7.3**: Sophisticated templating system with standardized formats
 
 The [Focused Examples](03_Prompt_Engineering/03.2-focused-examples/) section provides detailed before/after comparisons, showing exact prompts, model outputs, and explanations of the iterative refinement process, along with quantitative outcomes where possible.
 
@@ -115,7 +115,7 @@ For full details, see the [System Architecture](04_Architecture/system_architect
 
 ## Development Status & Roadmap
 
-The News Bot is currently in active development (Version H2.7.3), with several key milestones achieved:
+The News Bot is currently in active development (Version H.02.7.3), with several key milestones achieved:
 
 ### Completed Milestones
 - ✅ Multi-agent architecture implementation
@@ -141,7 +141,7 @@ The News Bot is currently in active development (Version H2.7.3), with several k
 
 ## Model Evolution & Versioning
 
-Our iterative development journey over nine months  (from initial Type-S models to the current Type-H2.7.3) is detailed through version-specific design documents and performance analyses, primarily found within the `[04_Architecture/](04_Architecture/)` and `[05_Analysis/]` directories. These sections provide a comprehensive trail of the strategies, design choices, and incremental improvements made in performance, cost-efficiency, latency, factual accuracy, and safety metrics.
+Our iterative development journey over nine months  (from initial Type-S models to the current Type-H.02.7.3) is detailed through version-specific design documents and performance analyses, primarily found within the `[04_Architecture/](04_Architecture/)` and `[05_Analysis/]` directories. These sections provide a comprehensive trail of the strategies, design choices, and incremental improvements made in performance, cost-efficiency, latency, factual accuracy, and safety metrics.
 
 ---
 

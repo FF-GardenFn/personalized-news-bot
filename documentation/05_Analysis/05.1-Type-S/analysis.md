@@ -178,7 +178,7 @@ Actionable takeaway: Consider enrolling in a course or workshop that deepens you
 
 **Type-S.2**: Enhanced domain-specific language and professional tone through persona adaptation for the items it covered, though adherence to all persona adaptation instructions was inconsistent. Specifically:
 - **Personalized Greeting**: Despite explicit instruction #6 to "Begin with a brief personalized greeting," this was missed in some S.2 outputs (e.g., for Persona 1), though successfully implemented for Persona 3, indicating variable adherence even to this explicit instruction.
-- **H3 Source Formatting**: S.2 P1 had inconsistent inclusion of sources in H3 headings.
+- **H.03 Source Formatting**: S.2 P1 had inconsistent inclusion of sources in H.03 headings.
 - **Inter-Item Linking**: Both S.1 and S.2 outputs failed to "Highlight explicit links between different news items" as instructed.
 
 **Improvement**: ★★☆ (Moderate - improved language but inconsistent adherence to persona instructions)

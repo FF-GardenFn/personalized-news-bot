@@ -22,7 +22,7 @@
 #                       PROJECT OVERVIEW                       #
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-The News Bot is a multi-agent AI system designed to transform raw news into personalized, actionable insights. Through multiple iterations (S.1 → H.1 → H.2 → H.2.5 → H.2.7 → H.2.7.3), we've refined our prompting strategies to enhance agent performance, improve coordination, and ensure reliable outputs.
+The News Bot is a multi-agent AI system designed to transform raw news into personalized, actionable insights. Through multiple iterations (S.1 → H.01 → H.02 → H.02.5 → H.02.7 → H.02.7.3), we've refined our prompting strategies to enhance agent performance, improve coordination, and ensure reliable outputs.
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
@@ -37,7 +37,7 @@ The News Bot is a multi-agent AI system designed to transform raw news into pers
                         └─────────────────┘
 ```
 
-This case study provides a walkthrough of key prompt engineering advancements and architectural evolutions within the News Bot system, illustrating the journey from its early conceptualizations (e.g., S.1 version agents) to the more sophisticated, modular H.2.7.3 iteration. The central objective throughout this development has been to leverage meticulous prompt engineering within a multi-agent framework to transform a deluge of raw information into personalized, actionable intelligence. Success is primarily measured by the system's ability to increase the Actionable Insight Rate (AIR), reflecting true personalization and utility for the recipient, and to enhance overall system reliability and insight quality.
+This case study provides a walkthrough of key prompt engineering advancements and architectural evolutions within the News Bot system, illustrating the journey from its early conceptualizations (e.g., S.1 version agents) to the more sophisticated, modular H.02.7.3 iteration. The central objective throughout this development has been to leverage meticulous prompt engineering within a multi-agent framework to transform a deluge of raw information into personalized, actionable intelligence. Success is primarily measured by the system's ability to increase the Actionable Insight Rate (AIR), reflecting true personalization and utility for the recipient, and to enhance overall system reliability and insight quality.
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #                 PROMPT ENGINEERING APPROACH                 #
@@ -46,7 +46,7 @@ This case study provides a walkthrough of key prompt engineering advancements an
 Our prompt engineering evolved through several key phases:
 
 ```
-S.1 ──────► H.1 ──────► H.2 ──────► H.2.5 ──────► H.2.7 ──────► H.2.7.3
+S.1 ──────► H.01 ──────► H.02 ──────► H.02.5 ──────► H.02.7 ──────► H.02.7.3
 │            │            │            │             │             │
 ▼            ▼            ▼            ▼             ▼             ▼
 Basic      Role-Based   Structured   Contextual    Template       Robust
@@ -54,11 +54,11 @@ Instructions Prompting   Reasoning   Enhancement  Standardization Enforcement + 
 ```
 
 1. **Initial Simple Prompts (S.1)**: Basic instructions with minimal guidance
-2. **Role-Based Prompting (H.1)**: Establishing agent identities with specialized functions
-3. **Structured Reasoning (H.2)**: Adding explicit reasoning steps and output requirements
-4. **Contextual Enhancement (H.2.5)**: Incorporating recipient context and market data
-5. **Template Standardization (H.2.7)**: Implementing consistent prompt structures
-6. **Robust Enforcement (H.2.7.3)**: Adding strict output validation and error handling
+2. **Role-Based Prompting (H.01)**: Establishing agent identities with specialized functions
+3. **Structured Reasoning (H.02)**: Adding explicit reasoning steps and output requirements
+4. **Contextual Enhancement (H.02.5)**: Incorporating recipient context and market data
+5. **Template Standardization (H.02.7)**: Implementing consistent prompt structures
+6. **Robust Enforcement (H.02.7.3)**: Adding strict output validation and error handling
 
 Each iteration addressed specific challenges identified through rigorous evaluation against our metrics framework, particularly focusing on Actionable Insight Rate (AIR), FactScore, and format compliance.
 
@@ -204,7 +204,7 @@ A core strategy in the News Bot's evolution has been the move from more generic 
                   │  Agents                         Agents  │
                   │    ▲                               ▲    │
                   │    │                               │    │
-H.1 ─────────────┼────┼───────────────────────────────┼────┼─────────────► H.2.7.3
+H.01 ─────────────┼────┼───────────────────────────────┼────┼─────────────► H.02.7.3
                   │    │                               │    │
                   │    ▼                               ▼    │
                   │                                         │
@@ -219,9 +219,9 @@ This evolution from general-purpose to specialized agents has been driven by our
 
 ### Mini-Case: ArXivSearcher Agent – From General Categorization to Specialized Academic Insight
 
-**The Challenge**: In earlier system iterations (e.g., pre-H.2.7.3), academic papers from sources like ArXiv might have been processed by more general-purpose agents (like an early-stage Categorizer). This approach often lacked the nuanced understanding required to connect dense academic research to specific news events and a recipient's professional context in a truly actionable way.
+**The Challenge**: In earlier system iterations (e.g., pre-H.02.7.3), academic papers from sources like ArXiv might have been processed by more general-purpose agents (like an early-stage Categorizer). This approach often lacked the nuanced understanding required to connect dense academic research to specific news events and a recipient's professional context in a truly actionable way.
 
-**The H.2.7.3 Prompt Engineering Solution**: A Dedicated "Academic Analyzer" To address this, the ArXivSearcher Agent was introduced. Its prompt is specifically engineered to:
+**The H.02.7.3 Prompt Engineering Solution**: A Dedicated "Academic Analyzer" To address this, the ArXivSearcher Agent was introduced. Its prompt is specifically engineered to:
 - Define the agent's role explicitly: You are an academic analyzer.
 - Instruct the agent to link specific academic papers (by PaperID) to relevant news items (by NewsID).
 - Demand a structured JSON output including news_id, an array of relevant_papers, detailed insights explaining the connection, and practical_implications tailored to the recipient.
@@ -257,7 +257,7 @@ PaperID 1 (arXiv:xxxx.xxxx): [Title, Authors, Summary of ArXiv paper]
 
 The prompt then tasks the LLM not just to present these facts, but to provide an explanation of the agreement or disagreement, and to assign a confidence level.
 
-**Triangulation Prompt from H.2.7.3**:
+**Triangulation Prompt from H.02.7.3**:
 ```
 Output a JSON array containing objects—no explanations, no table formats, no column headers.
 CRITICAL: Your response MUST start with '[' and end with ']' to be valid JSON.
@@ -305,7 +305,7 @@ The following examples demonstrate the dramatic improvements achieved through ou
 
 ```
 ┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐
-│  BEFORE (H.1)       │     │  PROMPT             │     │  AFTER (H.2.7.3)    │
+│  BEFORE (H.01)       │     │  PROMPT             │     │  AFTER (H.02.7.3)    │
 │                     │     │  ENGINEERING        │     │                     │
 │  • Basic prompts    │     │  IMPROVEMENTS       │     │  • Structured roles │
 │  • Minimal guidance │────▶│                     │────▶│  • Detailed format  │
@@ -315,16 +315,16 @@ The following examples demonstrate the dramatic improvements achieved through ou
 └─────────────────────┘     └─────────────────────┘     └─────────────────────┘
 ```
 
-### Example 1: ArXiv Searcher Agent (introduced in H.2.7.3)
+### Example 1: ArXiv Searcher Agent (introduced in H.02.7.3)
 
 The ArXiv Searcher agent connects news items with relevant academic research. We significantly improved its performance through targeted prompt engineering.
 
-#### Before (H.1 Version):
+#### Before (H.01 Version):
 
 There was no specialized agent for academic papers. This led to arXiv papers being considered as news items and dragged downstream along other items. Hence, the prompts to distil arXiv papers were the specific prompts of agents like Synthesizer or Summarizer. The output was often generic and lacked depth.
 
 
-## FactChecker Interaction (example from H.1 version):
+## FactChecker Interaction (example from H.01 version):
 ```text
 
 ### Prompt
@@ -372,7 +372,7 @@ As Sir's dedicated News Verifier, adopt a persona that demonstrates:
 [continues with  minimal insights]
 ```
 
-#### After (H.2.7.3 Version):
+#### After (H.02.7.3 Version):
 ```
 ## ArXivSearcher Interaction
 ```
@@ -550,7 +550,7 @@ Example of a "JSON Enforcer" system message:
 }
 ```
 
-**Impact**: This layered approach significantly increased the reliability of receiving clean, parsable JSON from the LLMs. While not infallible (as noted in ongoing work for H.2.7.3 addressing some remaining JSON array output issues), it drastically reduced parsing failures and improved the stability of the entire multi-agent pipeline, ensuring that structured data could flow reliably between agents. This engineering of the "dialogue constraints" is crucial for operationalizing LLMs in automated systems.
+**Impact**: This layered approach significantly increased the reliability of receiving clean, parsable JSON from the LLMs. While not infallible (as noted in ongoing work for H.02.7.3 addressing some remaining JSON array output issues), it drastically reduced parsing failures and improved the stability of the entire multi-agent pipeline, ensuring that structured data could flow reliably between agents. This engineering of the "dialogue constraints" is crucial for operationalizing LLMs in automated systems.
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #           ORCHESTRATING THE SWARM: MODULAR DESIGN             #
@@ -602,7 +602,7 @@ The evolution towards a system of specialized agents, each driven by tailored pr
 1. **Agent Registry**: A central place to define and access all available specialized agents.
 2. **Explicit Dependency Definition**: Each agent declares its dependencies on other agents. For instance, the FactCheckerAgent depends on WebSearcherAgent, and TriangulatorAgent depends on FactCheckerAgent.
 
-Actual Agent Configuration with Dependencies from H.2.7.3:
+Actual Agent Configuration with Dependencies from H.02.7.3:
 ```python
 # core/orchestration/pipeline/agents.py
 config = {
@@ -639,7 +639,7 @@ config = {
 
 3. **Topological Sorting for Execution Layers**: The EnhancedAgentSwarm automatically builds a dependency graph and calculates execution "waves" or layers. Agents within the same layer (having no dependencies on each other within that layer) can potentially be processed in parallel, while ensuring that all prerequisite data is available before an agent runs.
 
-Illustrative concept of execution waves:
+example of wave execution layers:
 ```
 zero_wave = {"web_searcher"}
 first_wave = {"categorizer", "recommender"}
@@ -659,7 +659,7 @@ fourth_wave = {"summarizer"} # Depends on multiple prior waves
 #                           CONCLUSION                          #
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-The journey of the News Bot, from its early S.1 concepts to the intricacies of the H.2.7.3 architecture, illustrates a profound evolution in leveraging prompt engineering as a core mechanism for building sophisticated AI systems. 
+The journey of the News Bot, from its early S.1 concepts to the intricacies of the H.02.7.3 architecture, illustrates a profound evolution in leveraging prompt engineering as a core mechanism for building sophisticated AI systems. 
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -676,7 +676,7 @@ The journey of the News Bot, from its early S.1 concepts to the intricacies of t
 │  └─────────────────┘   └─────────────────┘   └─────────────────┘        │
 │                                                                         │
 │           All driving towards increased Actionable Insight Rate         │
-└─────────────────────────────────────────────────────────────────────────┘
+ └────────────────────────────────────────────────────────────────────────┘
 ```
 
 This case study has highlighted several key themes: the strategic shift towards specialized agents (like the ArXivSearcher) with highly tailored prompts for deeper analysis; the development of foundational capabilities (such as the semantic search layer enhanced by LLM-driven query generation); the implementation of advanced prompting techniques to guide complex reasoning (e.g., the Triangulator's comparative analysis); and the adoption of system-wide patterns (like robust JSON enforcement and meticulous agent orchestration) to ensure reliability and enable complex, multi-step information processing.
@@ -685,6 +685,8 @@ This iterative refinement underscores a central philosophy in the News Bot's dev
 
 The driving motivation for these engineering efforts has always been to move closer to the News Bot's vision: transforming information overload into personalized, actionable intelligence that empowers recipients, with the Actionable Insight Rate (AIR) as a primary measure of this success. Each refinement in prompt design and system architecture aims to make the AI a more effective "cognitive partner."
 
-While the latest iteration, H.2.7.3 (encompassing elements like the H3H4Summarizer and specialized data agents), represents the most sophisticated and promising version to date, it remains a dynamic work in progress. As noted in focused examples and internal analyses, challenges such as consistently passing all benchmarks, resolving specific JSON array output intricacies, and managing the effects of token truncation in deeply chained interactions are areas of active development. However, the modular refactoring and the deeply interconnected nature of the H.2.7.3 system provide a robust foundation for future iterations to be implemented more seamlessly. It is this advanced architecture, powered by continuously evolving prompt engineering, that holds the conviction of being close to elevating the AIR to new levels.
+The H.02.7.3 iteration incorporated our most advanced prompt engineering and modular design intentions to date (including elements like the H.03H.04Summarizer and specialized data agents). However, as detailed in its specific Type-H.02.7.3 Analysis Report, this version still encountered critical architectural challenges, particularly in ensuring consistent JSON output from a majority of agents and maintaining pipeline integrity, which prevented it from meeting core performance and reliability benchmarks. These systemic issues meant H.02.7.3, despite the sophistication of its individual PE designs, remained a dynamic work in progress requiring fundamental architectural fixes. Nevertheless, the potential demonstrated by resilient components within H.02.7.3 when applying these PE techniques (such as SummarizerLogic operating on raw data) fuels the conviction that future iterations built upon a more architecturally sound foundation can indeed elevate the AIR to new levels.
 
-Ultimately, the News Bot project demonstrates that the pursuit of genuinely helpful and reliable AI systems is an ongoing journey of innovation, where the art and science of prompt engineering, in concert with thoughtful system design, play an increasingly pivotal role.
+While the latest iteration, H.02.7.3 (encompassing elements like the H.03H.04Summarizer and specialized data agents), represents the most sophisticated and promising version to date, it remains a dynamic work in progress. As noted in focused examples and internal analyses, challenges such as consistently passing all benchmarks, resolving specific JSON array output intricacies, and managing the effects of token truncation in deeply chained interactions are areas of active development. However, the modular refactoring and the deeply interconnected nature of the H.02.7.3 system provide a robust foundation for future iterations to be implemented more seamlessly. It is this advanced architecture, powered by continuously evolving prompt engineering, that holds the conviction of being close to elevating the AIR to new levels.
+
+Ultimately, the project demonstrates that the pursuit of genuinely helpful and reliable AI systems is an ongoing journey of innovation, where the art and science of prompt engineering, in conjunction with thoughtful system design, play an increasingly pivotal role.

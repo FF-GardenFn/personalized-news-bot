@@ -16,7 +16,7 @@ The Categorizer Agent serves several critical functions within the News Bot ecos
 
 ## Evolution of Prompting Strategies
 
-### H1 Version (Initial Implementation)
+### H.01 Version (Initial Implementation)
 
 ## Categorizer Interaction 
 
@@ -110,7 +110,7 @@ Ensure your categorization is tailored to the recipient's profession and interes
   }
 ]
 ```
-## Categorizer-H2 Interaction 
+## Categorizer-H.02 Interaction 
 
 ### Prompt
 
@@ -170,7 +170,7 @@ Allowed categories: Technology | Science | Defence | Politics | Markets | Other
 ]
 ```
 
-### H.2.7.3 - Persona 1 Example
+### H.02.7.3 - Persona 1 Example
 
 #### Prompt:
 
@@ -242,7 +242,7 @@ Ensure your entire response is ONLY the JSON array as described.
 }
 ```
 
-### H.2.7.3 - Persona 3 Example (Model Architect at Anthropic)
+### H.02.7.3 - Persona 3 Example (Model Architect at Anthropic)
 
 #### Prompt:
 
