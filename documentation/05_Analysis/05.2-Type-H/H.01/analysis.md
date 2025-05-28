@@ -41,11 +41,11 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 ### 1. Overall Session Metrics (Efficiency)
 
-| Metric | Value for H.01 | H.02.7 Benchmark | Tier Target | Status | Notes |
-|--------|---------------|----------------|-------------|--------|-------|
-| **Tok/brief** | 8,308 tokens | 54,450 | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Exceeds the 7,000 target, though significantly lower than H.02.7 |
-| **p95 Latency** | 50.29 s | 27.6 s | ≤ 30 s (Tier 0) | 🔴 Hard Fail | Total execution time exceeds the 30s target |
-| **Cost $/brief** | $0.044 | $0.041 | ≤ $0.05 (Tier 0) | ✅ Pass | Within target using mixed model approach |
+| Metric | Value for H.01 | Tier Target | Status | Notes |
+|--------|---------------|-------------|--------|-------|
+| **Tok/brief** | 8,308 tokens | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Exceeds the 7,000 target |
+| **p95 Latency** | 50.29 s | ≤ 30 s (Tier 0) | 🔴 Hard Fail | Total execution time exceeds the 30s target |
+| **Cost $/brief** | $0.044 | ≤ $0.05 (Tier 0) | ✅ Pass | Within target using mixed model approach |
 
 **Token and Cost Breakdown:**
 - Categorizer (gpt-4o-mini): 2,095 tokens, $0.00068
@@ -174,11 +174,11 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 ### 1. Overall Session Metrics (Efficiency)
 
-| Metric | Value for H.01 | H.02.7 Benchmark | Tier Target | Status | Notes |
-|--------|---------------|----------------|-------------|--------|-------|
-| **Tok/brief** | 8,407 tokens | 54,450 | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Exceeds the 7,000 target, though significantly lower than H.02.7 |
-| **p95 Latency** | 49.45 s | 27.6 s | ≤ 30 s (Tier 0) | 🔴 Hard Fail | Total execution time exceeds the 30s target |
-| **Cost $/brief** | $0.0457 | $0.041 | ≤ $0.05 (Tier 0) | ✅ Pass | Within target using mixed model approach |
+| Metric | Value for H.01 | Tier Target | Status | Notes |
+|--------|---------------|-------------|--------|-------|
+| **Tok/brief** | 8,407 tokens | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Exceeds the 7,000 target |
+| **p95 Latency** | 49.45 s | ≤ 30 s (Tier 0) | 🔴 Hard Fail | Total execution time exceeds the 30s target |
+| **Cost $/brief** | $0.0457 | ≤ $0.05 (Tier 0) | ✅ Pass | Within target using mixed model approach |
 
 **Token and Cost Breakdown:**
 - Categorizer (gpt-4o-mini): 2,134 tokens, $0.00069
@@ -359,7 +359,8 @@ Both persona tests revealed consistent strengths and weaknesses in the H.01 syst
 
 >**Note**: For more details about the migration please see [Migration: Type-H.01 → Type-H.02](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02/migration.md).
 
-The H.01 prototype demonstrates the potential of a multi-agent approach but requires significant technical improvements before it can meet all Tier 0 and Tier 1 targets. These findings inform future development, with a focus on implementing shared system-level prompts and improving agent coordination. 
+The H.01 prototype demonstrates the potential of a multi-agent approach but requires significant technical improvements before it can meet all Tier 0 and Tier 1 targets. These findings inform future development, with a focus on implementing shared system-level prompts and improving agent coordination.
+
 
 ## H.01 Prompt Engineering Analysis
 
