@@ -1,16 +1,16 @@
-# Recommender Agent: H.1 Vs H.2
+# Recommender Agent: H.01 Vs H.02
 
 ## Overview
 
-This document highlights the evolution of the Recommender Agent between model H.1 and H.2. Here we demonstrate how prompt engineering alongside clever code organization (utilizing a system-generated prompt) significantly reduced latency and token count while maintaining the agent's output quality.
+This document highlights the evolution of the Recommender Agent between model H.01 and H.02. Here we demonstrate how prompt engineering alongside clever code organization (utilizing a system-generated prompt) significantly reduced latency and token count while maintaining the agent's output quality.
 
 The Recommender Agent serves a critical function in the News Bot ecosystem by identifying gaps in news coverage and suggesting additional topics and sources that align with the recipient's interests and professional context. This personalized recommendation capability directly contributes to improving the Actionable Insight Rate (AIR), our primary evaluation metric.
 
-## Version H.1: Initial Implementation
+## Version H.01: Initial Implementation
 
 ### Recommender Interaction 
 
-In the H.1 version, the Recommender Agent used a comprehensive prompt with detailed recipient information and explicit persona guidance:
+In the H.01 version, the Recommender Agent used a comprehensive prompt with detailed recipient information and explicit persona guidance:
 
 ### Prompt
 
@@ -74,7 +74,7 @@ Ensure your recommendations are tailored to the recipient's profession and inter
 
 ### Response Output
 
-```text
+````json
 
 {
   "recommended_topics": [
@@ -102,7 +102,8 @@ Ensure your recommendations are tailored to the recipient's profession and inter
   "broader_interests": ["Artificial Intelligence", "Machine Learning Algorithms", "Political Implications of AI"],
   "explanation": "The recommendations focus on emerging topics and trends in AI and ML that are directly aligned with Mr. F's professional role and interests. By suggesting reliable sources for each topic, the aim is to provide valuable, timely information that can enhance his expertise and inform his work at Anthropic."
 }
-```
+````
+
 ### Metrics
 
 - **prompt_tokens**: 1031
@@ -112,11 +113,11 @@ Ensure your recommendations are tailored to the recipient's profession and inter
 - **retry_count**: 0
 - **model**: gpt-4o-mini
 
-## Version H.2: Streamlined Implementation
+## Version H.02: Streamlined Implementation
 
-### Recommender-H2 Interaction  
+### Recommender-H.02 Interaction  
 
-In the H.2 version, the Recommender Agent used a more streamlined prompt with system-generated preprocessing and explicit ranking logic:
+In the H.02 version, the Recommender Agent used a more streamlined prompt with system-generated preprocessing and explicit ranking logic:
 
 ### Prompt
 
@@ -157,7 +158,7 @@ Rank by (avg importance × relevance) of missed sub-domains.
 
 ### Response Output
 
-```text
+
 ```json
 [
   {
@@ -190,25 +191,25 @@ Rank by (avg importance × relevance) of missed sub-domains.
 
 ## Analysis of Key Differences
 
-The Recommender Agent's evolution from H.1 to H.2 demonstrates a strategic refinement of prompt engineering aimed at enhancing operational efficiency and output consistency while maintaining high-quality, relevant suggestions.
+The Recommender Agent's evolution from H.01 to H.02 demonstrates a strategic refinement of prompt engineering aimed at enhancing operational efficiency and output consistency while maintaining high-quality, relevant suggestions.
 
 ### Prompt Engineering Improvements
 
 1. **Structural Changes**:
-   - **H.1**: Comprehensive prompt with detailed recipient profiles, extensive persona guidance, and complex recommendation approach embedded directly in the task
-   - **H.2**: Focused, modular design with streamlined instructions and system-generated preprocessing
+   - **H.01**: Comprehensive prompt with detailed recipient profiles, extensive persona guidance, and complex recommendation approach embedded directly in the task
+   - **H.02**: Focused, modular design with streamlined instructions and system-generated preprocessing
 
 2. **Instruction Refinement**:
-   - **H.1**: General guidance on recommendation approach
-   - **H.2**: Explicit constraints and ranking logic (e.g., "Suggest ≤3 *new* topics, "Rank by (avg importance × relevance) of missed sub-domains")
+   - **H.01**: General guidance on recommendation approach
+   - **H.02**: Explicit constraints and ranking logic (e.g., "Suggest ≤3 *new* topics, "Rank by (avg importance × relevance) of missed sub-domains")
 
 3. **Output Format**:
-   - **H.1**: Complex nested JSON structure with multiple fields
-   - **H.2**: Simpler, flatter JSON array output optimized for downstream processing
+   - **H.01**: Complex nested JSON structure with multiple fields
+   - **H.02**: Simpler, flatter JSON array output optimized for downstream processing
 
 ### Performance Improvements
 
-| Metric | H.1 | H.2 | Improvement |
+| Metric | H.01 | H.02 | Improvement |
 |--------|-----|-----|-------------|
 | Total Tokens | 1,518 | 1,265 | -16.7% |
 | Execution Time | 6.65s | 4.05s | -39.1% |
@@ -231,4 +232,4 @@ These improvements directly address key metrics in our [evaluation framework](..
 
 ### Qualitative Assessment
 
-Despite the more concise output and the abstraction of direct persona directives in the task prompt, the H.2 recommendations (e.g., "Regulatory Frameworks for AI," "Ethical Considerations in AI Development") remained highly relevant and insightful for the sophisticated AI professional profile. This demonstrates that the refined prompting and reliance on structured input/ranking logic successfully preserved core recommendation quality while achieving significant efficiency gains.
+Despite the more concise output and the abstraction of direct persona directives in the task prompt, the H.02 recommendations (e.g., "Regulatory Frameworks for AI," "Ethical Considerations in AI Development") remained highly relevant and insightful for the sophisticated AI professional profile. This demonstrates that the refined prompting and reliance on structured input/ranking logic successfully preserved core recommendation quality while achieving significant efficiency gains.

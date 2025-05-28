@@ -1,12 +1,12 @@
-# Type-H.1 Analysis: Multi-Agent Prototype
+# Type-H.01 Analysis: Multi-Agent Prototype
 
-> **Note:** This analysis evaluates Type-H.1, our first multi-agent prototype in the Type-H series. H.1 represented a fundamental shift from the single-agent Type-S approach to a specialized multi-agent architecture, establishing the foundation for all subsequent Type-H iterations.
+> **Note:** This analysis evaluates Type-H.01, our first multi-agent prototype in the Type-H series. H.01 represented a fundamental shift from the single-agent Type-S approach to a specialized multi-agent architecture, establishing the foundation for all subsequent Type-H iterations.
 
 ## Executive Summary
 
 **VERDICT: REJECT** - Critical performance failures and incomplete briefings
 
-The Type-H.1 prototype, our initial multi-agent architecture, demonstrated strong personalization potential but ultimately failed critical performance targets, rendering it unsuitable for deployment. It incurred **Hard Fails** on the Tier 0 p95 Latency target (\~50s vs. ≤30s) and the Tier 1 Tok/brief target (8300-8400 tokens vs. ≤7000). While the system passed its internally-set Tier 0 Cost/brief target (\~$0.045 vs. ≤$0.05) and the Tier 3 Format Compliance target (0 Schema Errors), these successes were overshadowed by the Summarizer's critical functional bug: processing only 40-50% of news items despite explicit instructions to process all items. This incompleteness severely undermined the overall utility and practical value of the generated briefings. The core finding remains: excellent personalization capabilities, particularly for technical personas, were hamstrung by fundamental architectural limitations and functional deficits.
+The Type-H.01 prototype, our initial multi-agent architecture, demonstrated strong personalization potential but ultimately failed critical performance targets, rendering it unsuitable for deployment. It incurred **Hard Fails** on the Tier 0 p95 Latency target (\~50s vs. ≤30s) and the Tier 1 Tok/brief target (8300-8400 tokens vs. ≤7000). While the system passed its internally-set Tier 0 Cost/brief target (\~$0.045 vs. ≤$0.05) and the Tier 3 Format Compliance target (0 Schema Errors), these successes were overshadowed by the Summarizer's critical functional bug: processing only 40-50% of news items despite explicit instructions to process all items. This incompleteness severely undermined the overall utility and practical value of the generated briefings. The core finding remains: excellent personalization capabilities, particularly for technical personas, were hamstrung by fundamental architectural limitations and functional deficits.
 
 *[Return to [Main Analysis](../_Type_H_main_analysis.md) | [Standards of Evaluation](../../../02_Standards_Of_Evaluation/README.md)]*
 
@@ -24,7 +24,7 @@ The Type-H.1 prototype, our initial multi-agent architecture, demonstrated stron
 
 ## System Architecture
 
-Type-H.1 introduced a multi-agent architecture with four specialized agents:
+Type-H.01 introduced a multi-agent architecture with four specialized agents:
 
 1. **Categorizer Agent**: Classified news items by topic and assigned importance/relevance scores
 2. **Fact-Checker Agent**: Verified the factual accuracy and credibility of news items
@@ -33,7 +33,7 @@ Type-H.1 introduced a multi-agent architecture with four specialized agents:
 
 Each agent had a specialized prompt tailored to its specific role and responsibilities. Basic recipient information (name, profession, interests, location) was included in prompts to enable personalization, and the system used consistent markdown formatting with level-3 headings for news items.
 
-## Analysis of H.1 Session for Persona 1 (Aspiring Scientist)
+## Analysis of H.01 Session for Persona 1 (Aspiring Scientist)
 
 **Recipient Profile (Persona 1):** "Sir", Aspiring Scientist  
 **Interests:** Finance, Politics, Computer Science, AI, Math, Physics, Military Technology, Defence Technology, Geopolitics, Philosophy  
@@ -41,9 +41,9 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 ### 1. Overall Session Metrics (Efficiency)
 
-| Metric | Value for H.1 | H2.7 Benchmark | Tier Target | Status | Notes |
+| Metric | Value for H.01 | H.02.7 Benchmark | Tier Target | Status | Notes |
 |--------|---------------|----------------|-------------|--------|-------|
-| **Tok/brief** | 8,308 tokens | 54,450 | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Exceeds the 7,000 target, though significantly lower than H2.7 |
+| **Tok/brief** | 8,308 tokens | 54,450 | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Exceeds the 7,000 target, though significantly lower than H.02.7 |
 | **p95 Latency** | 50.29 s | 27.6 s | ≤ 30 s (Tier 0) | 🔴 Hard Fail | Total execution time exceeds the 30s target |
 | **Cost $/brief** | $0.044 | $0.041 | ≤ $0.05 (Tier 0) | ✅ Pass | Within target using mixed model approach |
 
@@ -116,10 +116,10 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 | Metric | Target | Status         | Notes                                                                                                                                                                                                      |
 |--------|--------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **AIR** | ≥ 0.25 (Tier 0) | Estimated (Human-in-Loop): 0.6 | Based on (Actions Taken as Persona / Summarized Items Delivered by H.1). For Persona 1 (Aspiring Scientist), 3 out of 5 summarized items were deemed directly actionable for core interests, yielding 0.6. |
-| **Relevance@3** | ≥ 4.0 (Tier 1) | Calculated (Human-in-Loop): 4.33 | Based on persona-rated relevance of the top-3 items actually summarized and delivered in the H.1 brief. For P1: (5+4+4)/3.                                                                                 |
+| **AIR** | ≥ 0.25 (Tier 0) | Estimated (Human-in-Loop): 0.6 | Based on (Actions Taken as Persona / Summarized Items Delivered by H.01). For Persona 1 (Aspiring Scientist), 3 out of 5 summarized items were deemed directly actionable for core interests, yielding 0.6. |
+| **Relevance@3** | ≥ 4.0 (Tier 1) | Calculated (Human-in-Loop): 4.33 | Based on persona-rated relevance of the top-3 items actually summarized and delivered in the H.01 brief. For P1: (5+4+4)/3.                                                                                 |
 | **FactScore** | ≥ 0.85 (Tier 0) | Not Measurable | an accurate factscore depends on the summarizer and the summarizer failed                                                                                                                                  |
-| **Embedding Novelty Δ** | ≥ 0.05 (Tier 2) | Not Used here  | H.1 is the baseline                                                                                                                                                                                        |
+| **Embedding Novelty Δ** | ≥ 0.05 (Tier 2) | Not Used here  | H.01 is the baseline                                                                                                                                                                                        |
 
 
 **Rationale and Qualitative Context for Metric Scores**
@@ -166,7 +166,7 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 
 
-## Analysis of H.1 Session for Persona 3 (Model Architect)
+## Analysis of H.01 Session for Persona 3 (Model Architect)
 
 **Recipient Profile (Persona 3):** "Mr. F", Model Architect at Anthropic  
 **Interests:** RLHF, constitutional AI, alignment techniques, anthropic news, AI, Machine learning algorithms, Benchmark techniques, Business, Politics, Science  
@@ -174,9 +174,9 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 ### 1. Overall Session Metrics (Efficiency)
 
-| Metric | Value for H.1 | H2.7 Benchmark | Tier Target | Status | Notes |
+| Metric | Value for H.01 | H.02.7 Benchmark | Tier Target | Status | Notes |
 |--------|---------------|----------------|-------------|--------|-------|
-| **Tok/brief** | 8,407 tokens | 54,450 | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Exceeds the 7,000 target, though significantly lower than H2.7 |
+| **Tok/brief** | 8,407 tokens | 54,450 | ≤ 7,000 (Tier 1 Hard Fail) | 🔴 Hard Fail | Exceeds the 7,000 target, though significantly lower than H.02.7 |
 | **p95 Latency** | 49.45 s | 27.6 s | ≤ 30 s (Tier 0) | 🔴 Hard Fail | Total execution time exceeds the 30s target |
 | **Cost $/brief** | $0.0457 | $0.041 | ≤ $0.05 (Tier 0) | ✅ Pass | Within target using mixed model approach |
 
@@ -253,10 +253,10 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 
 | Metric | Target | Status | Notes |
 |--------|--------|--------|-------|
-| **AIR** | ≥ 0.25 (Tier 0) | Estimated (Human-in-Loop): 1.0 | Based on (Actions Taken as Persona / Summarized Items Delivered by H.1). For Persona 3 (Model Architect), all 4 highly relevant summarized items were deemed directly actionable, yielding 1.0. |
-| **Relevance@3** | ≥ 4.0 (Tier 1) | Calculated (Human-in-Loop): 4.67 | Based on persona-rated relevance of the top-3 items actually summarized and delivered in the H.1 brief. For P3: (5+5+4)/3. |
+| **AIR** | ≥ 0.25 (Tier 0) | Estimated (Human-in-Loop): 1.0 | Based on (Actions Taken as Persona / Summarized Items Delivered by H.01). For Persona 3 (Model Architect), all 4 highly relevant summarized items were deemed directly actionable, yielding 1.0. |
+| **Relevance@3** | ≥ 4.0 (Tier 1) | Calculated (Human-in-Loop): 4.67 | Based on persona-rated relevance of the top-3 items actually summarized and delivered in the H.01 brief. For P3: (5+5+4)/3. |
 | **FactScore** | ≥ 0.85 (Tier 0) | Not Measurable | an accurate factscore depends on the summarizer and the summarizer failed  |
-| **Embedding Novelty Δ** | ≥ 0.05 (Tier 2) | Not Used here | H.1 is the baseline |
+| **Embedding Novelty Δ** | ≥ 0.05 (Tier 2) | Not Used here | H.01 is the baseline |
 
 
 **Rationale and Qualitative Context for Metric Scores**
@@ -301,9 +301,9 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 - **Latency:** Total processing time (49.45s) exceeds target
 - **Summarizer Incompleteness:** Only processed 40% of news items despite explicit instructions
 
-### 📊 Why H.1 Failed: By the Numbers
+### 📊 Why H.01 Failed: By the Numbers
 
-| Category | Metric/Issue | Result for H.1 (Avg./Range) | Finding / Impact |
+| Category | Metric/Issue | Result for H.01 (Avg./Range) | Finding / Impact |
 | :---------------------------- | :------------------------------- | :----------------------------------- | :----------------------------------------------------- |
 | 🔴 Performance Hard Fails | p95 Latency | ~50s (Approx. 67% over ≤30s target) | BLOCKING: Unacceptable user experience. |
 | | Tok/brief | ~8350 tokens (Approx. 19% over ≤7k) | BLOCKING: Exceeds Tier 1 Hard Fail threshold. |
@@ -316,7 +316,7 @@ Each agent had a specialized prompt tailored to its specific role and responsibi
 ** Probable Root Cause**: Sequential processing + No completion enforcement + Redundant prompts
 
 ## Overall System Assessment and Migration Path
-The H.1 prototype successfully demonstrated the potential of a multi-agent approach, particularly in its strong personalization capabilities for diverse recipient profiles. However, critical performance issues—including excessive latency (49-50s) and token usage (8,300-8,400 tokens) leading to Hard Fails against Tier 0/1 targets—and a significant functional bug in the Summarizer resulting in incomplete briefings (processing only 40-50% of news items), rendered it unsuitable for deployment. 
+The H.01 prototype successfully demonstrated the potential of a multi-agent approach, particularly in its strong personalization capabilities for diverse recipient profiles. However, critical performance issues—including excessive latency (49-50s) and token usage (8,300-8,400 tokens) leading to Hard Fails against Tier 0/1 targets—and a significant functional bug in the Summarizer resulting in incomplete briefings (processing only 40-50% of news items), rendered it unsuitable for deployment. 
 
 Despite these challenges, the system showed remarkable strengths in personalization quality, with Persona 3 (Model Architect) receiving highly tailored content that leveraged domain-specific knowledge. The Categorizer and Recommender agents demonstrated excellent understanding of recipient interests, while the Summarizer provided strong actionable insights for the items it did process.
 
@@ -335,7 +335,7 @@ Based on the analysis provided, the subsequent versions will focus on addressing
 
 ### Consistent Findings Across Personas
 
-Both persona tests revealed consistent strengths and weaknesses in the H.1 system:
+Both persona tests revealed consistent strengths and weaknesses in the H.01 system:
 
 #### Strengths:
 - **Strong Personalization:** Excellent adaptation to different recipient profiles
@@ -350,20 +350,20 @@ Both persona tests revealed consistent strengths and weaknesses in the H.1 syste
 
 ### Agent Performance Matrix 
 
-| Agent | Key Strength Observed in H.1 | Key Functional Observation / Critical Issue for H.1 |
+| Agent | Key Strength Observed in H.01 | Key Functional Observation / Critical Issue for H.01 |
 |-------|------------------------------|---------------------------------------------------|
 | Categorizer | Accurate relevance & topic assignment | Performed its core classification task effectively. |
-| FactChecker | Nuanced credibility & bias assessment | Provided detailed and critical analysis (for H.1). |
+| FactChecker | Nuanced credibility & bias assessment | Provided detailed and critical analysis (for H.01). |
 | Recommender | Novel & persona-aligned topic suggestions | Generated valuable, tailored recommendations. |
 | Summarizer | Strong personalization (on processed items) | Critical Functional Fail: Incomplete (40-50% data loss). |
 
->**Note**: For more details about the migration please see [Migration: Type-H.1 → Type-H.2](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.2/migration.md).
+>**Note**: For more details about the migration please see [Migration: Type-H.01 → Type-H.02](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02/migration.md).
 
-The H.1 prototype demonstrates the potential of a multi-agent approach but requires significant technical improvements before it can meet all Tier 0 and Tier 1 targets. These findings inform future development, with a focus on implementing shared system-level prompts and improving agent coordination. 
+The H.01 prototype demonstrates the potential of a multi-agent approach but requires significant technical improvements before it can meet all Tier 0 and Tier 1 targets. These findings inform future development, with a focus on implementing shared system-level prompts and improving agent coordination. 
 
-## H.1 Prompt Engineering Analysis
+## H.01 Prompt Engineering Analysis
 
-Our analysis of H.1 prompt engineering revealed several inefficiencies that contributed to the system's performance issues:
+Our analysis of H.01 prompt engineering revealed several inefficiencies that contributed to the system's performance issues:
 
 ### Inefficiencies Identified
 

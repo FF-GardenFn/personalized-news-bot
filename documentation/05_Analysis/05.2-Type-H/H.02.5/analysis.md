@@ -1,12 +1,12 @@
-# Type-H2.5 Analysis: Market Data Integration Prototype
+# Type-H.02.5 Analysis: Market Data Integration Prototype
 
-> **Note:** This analysis evaluates the H2.5 version of our multi-agent system, highlighting its market data integration capabilities and the challenges it faced with upstream data processing.
+> **Note:** This analysis evaluates the H.02.5 version of our multi-agent system, highlighting its market data integration capabilities and the challenges it faced with upstream data processing.
 
 ## Executive Summary
 
 **VERDICT: REJECT** - System producing false positives from synthetic data
 
-Type-H2.5 experienced complete upstream pipeline failure with 100% of analytical agents producing error states. Despite this, the Summarizer produced coherent outputs using entirely synthetic fallback data - a dangerous "success" that masks critical system failures.
+Type-H.02.5 experienced complete upstream pipeline failure with 100% of analytical agents producing error states. Despite this, the Summarizer produced coherent outputs using entirely synthetic fallback data - a dangerous "success" that masks critical system failures.
 
 Key Metrics:
 - Pipeline Integrity: 0% (all agents failed)
@@ -19,7 +19,7 @@ Key Metrics:
 *[Return to [Main Analysis](../_Type_H_main_analysis.md) | [Standards of Evaluation](../../../02_Standards_Of_Evaluation/README.md)]*
 
 ⚠️ **CRITICAL WARNING: ZOMBIE PIPELINE DETECTED**
-H2.5 exhibits a dangerous failure mode where catastrophic upstream errors produce seemingly successful outputs:
+H.02.5 exhibits a dangerous failure mode where catastrophic upstream errors produce seemingly successful outputs:
 - All analytical agents failed (100% error rate)
 - System generated professional-looking briefings from entirely synthetic data
 - End users have no way to detect this invisible degradation
@@ -27,21 +27,21 @@ H2.5 exhibits a dangerous failure mode where catastrophic upstream errors produc
 
 ## System Architecture
 
-Type-H2.5 expanded upon the multi-agent architecture with the following key enhancements:
+Type-H.02.5 expanded upon the multi-agent architecture with the following key enhancements:
 
 1. **Market Data Integration**: Added capability to ingest financial market data for deeper analysis
 2. **Improved Chain-of-Thought Prompting**: Enhanced prompting techniques for more sophisticated analysis
 3. **Pipeline Integrity Controls**: Added error handling for agent failures (though these proved insufficient)
 
-The system continued to use the four specialized agents introduced in H.1:
+The system continued to use the four specialized agents introduced in H.01:
 - **Categorizer Agent**: Classified news items by topic and assigned importance/relevance scores
 - **Fact-Checker Agent**: Verified factual accuracy and credibility of news items
 - **Recommender Agent**: Suggested related topics based on recipient interests
 - **Summarizer Agent**: Created personalized news briefings for recipients
 
-Type-H2.5 also introduced a more efficient model selection, using gpt-4o-mini for the Summarizer instead of gpt-4o, aiming to reduce costs while maintaining quality.
+Type-H.02.5 also introduced a more efficient model selection, using gpt-4o-mini for the Summarizer instead of gpt-4o, aiming to reduce costs while maintaining quality.
 
-## Analysis of H2.5 Session for Persona 1 (Aspiring Scientist)
+## Analysis of H.02.5 Session for Persona 1 (Aspiring Scientist)
 
 **Recipient Profile (Persona 1):** "Sir", Aspiring Scientist  
 **Interests:** Finance, Politics, Computer Science, AI, Math, Physics, Military Technology, Defence Technology, Geopolitics, Philosophy  
@@ -49,19 +49,19 @@ Type-H2.5 also introduced a more efficient model selection, using gpt-4o-mini fo
 
 ### 1. Overall Session Metrics (Efficiency)
 
-| Metric | Value for H2.5 (Summarizer Only) | H.1 Summarizer (gpt-4o, 10 items) | Notes |
+| Metric | Value for H.02.5 (Summarizer Only) | H.01 Summarizer (gpt-4o, 10 items) | Notes |
 |--------|----------------------------------|------------------------------|-------|
-| **Model** | gpt-4o-mini | gpt-4o | H2.5 used a more efficient model |
-| **Prompt Tokens** | 3,304 (Persona 1), 3,321 (Persona 3) | 1,444 (Persona 1), 1,481 (Persona 3) | H2.5 prompt tokens significantly inflated due to inclusion of extensive errored upstream data |
-| **Total Tokens** | 4,421 (Prompt: 3,304, Completion: 1,117) for Persona 1, 4,401 (Prompt: 3,321, Completion: 1,080) for Persona 3 | 2,832 (Prompt: 1,444, Completion: 1,388) for Persona 1, 2,404 (Prompt: 1,481, Completion: 923) for Persona 3 | H2.5 had higher token usage despite processing only 5 items  |
+| **Model** | gpt-4o-mini | gpt-4o | H.02.5 used a more efficient model |
+| **Prompt Tokens** | 3,304 (Persona 1), 3,321 (Persona 3) | 1,444 (Persona 1), 1,481 (Persona 3) | H.02.5 prompt tokens significantly inflated due to inclusion of extensive errored upstream data |
+| **Total Tokens** | 4,421 (Prompt: 3,304, Completion: 1,117) for Persona 1, 4,401 (Prompt: 3,321, Completion: 1,080) for Persona 3 | 2,832 (Prompt: 1,444, Completion: 1,388) for Persona 1, 2,404 (Prompt: 1,481, Completion: 923) for Persona 3 | H.02.5 had higher token usage despite processing only 5 items  |
 | **Execution Time** | 24.50 s (Persona 1), 18.20 s (Persona 3) | Not specified for Summarizer alone | Execution time varies by persona |
-| **Cost** | $0.00117 (Persona 1), similar for Persona 3 | $0.02118 (estimated) | H2.5 used a cheaper model but had higher token usage |
+| **Cost** | $0.00117 (Persona 1), similar for Persona 3 | $0.02118 (estimated) | H.02.5 used a cheaper model but had higher token usage |
 
-**Note:** These metrics represent only the Summarizer agent, not the full pipeline. Complete pipeline metrics for H2.5 are not available due to upstream failures.Thus leading the complete pipeline metrics to be  equal to the summarizer's.
+**Note:** These metrics represent only the Summarizer agent, not the full pipeline. Complete pipeline metrics for H.02.5 are not available due to upstream failures.Thus leading the complete pipeline metrics to be  equal to the summarizer's.
 
 ### 2. Pipeline Integrity & Input Quality
 
-This is a critical failure area for H2.5, with severe upstream data processing issues:
+This is a critical failure area for H.02.5, with severe upstream data processing issues:
 
 | Input Type | Status | Details |
 |------------|--------|---------|
@@ -77,11 +77,11 @@ This is a critical failure area for H2.5, with severe upstream data processing i
 - Failure to pass structured data between agents
 - Personalization placeholder failure: Variables like "{recipient_short}" not replaced
 
-Consequently, the Summarizer agent operated under extreme handicap, forced to rely almost exclusively on raw news item text and the recipient persona, rather than the rich analytical inputs intended in the H.2.5 design.
+Consequently, the Summarizer agent operated under extreme handicap, forced to rely almost exclusively on raw news item text and the recipient persona, rather than the rich analytical inputs intended in the H.02.5 design.
 
 ### The Zombie Pipeline Problem
 
-H2.5 created a dangerous precedent where catastrophic failures produce seemingly successful outputs:
+H.02.5 created a dangerous precedent where catastrophic failures produce seemingly successful outputs:
 
 ```python
 # What Actually Happened:
@@ -109,7 +109,7 @@ This is worse than visible failure - it's invisible degradation.
 
 Given the flatlined input scores (all items had default importance/relevance 3.0), the selection criteria appears to be based on the LLM's internal relevance assessment for each persona rather than explicit scoring. For Persona 1 (Aspiring Scientist), it selected academic papers and political news, while for Persona 3 (Model Architect at Anthropic), it prioritized AI-related papers and tech news.
 
-In both cases, the Summarizer's deviation to processing only 5/10 items, without valid upstream scores to guide selection based on adjusted_score, represents a critical failure against the 'FOR EVERY NEWS ITEM' processing instruction (implied by the H.2.5 prompt structure similar to H.1). The selection appears to rely on opaque internal LLM heuristics when presented with uniformly errored inputs.
+In both cases, the Summarizer's deviation to processing only 5/10 items, without valid upstream scores to guide selection based on adjusted_score, represents a critical failure against the 'FOR EVERY NEWS ITEM' processing instruction (implied by the H.02.5 prompt structure similar to H.01). The selection appears to rely on opaque internal LLM heuristics when presented with uniformly errored inputs.
 
 #### 3.2 Content Quality
 - **Key Facts & Developments:** Generally covered concisely
@@ -121,11 +121,11 @@ In both cases, the Summarizer's deviation to processing only 5/10 items, without
   - Behavioral Finance: "Study suggests that the equity premium puzzle may be explained by a reconsideration of risk factors, which could shift expected returns by as much as 1-2%"
   - Mathematical Logic: "Solid grasp of mathematical logic can lead to a 15-20% increase in programming efficiency"
 
-These quantitative claims appear fabricated or overly generalized, raising concerns for FactScore. The Original Summarizer took a more cautious approach, avoiding speculative quantitative data. This inclusion of unsubstantiated quantitative figures by the H.2.5 Summarizer is a significant regression in information reliability.
+These quantitative claims appear fabricated or overly generalized, raising concerns for FactScore. The Original Summarizer took a more cautious approach, avoiding speculative quantitative data. This inclusion of unsubstantiated quantitative figures by the H.02.5 Summarizer is a significant regression in information reliability.
 
 #### 3.2.1 Quantitative Fabrication Analysis
 
-The H2.5 Summarizer introduced specific numerical claims without sources:
+The H.02.5 Summarizer introduced specific numerical claims without sources:
 
 | Claim | Source | Risk Level |
 |-------|---------|------------|
@@ -191,7 +191,7 @@ The "is_synthetic": true flag reveals a fundamental safety issue:
 
 **Additional Detail on Market Data Integration:**
 - The MARKET DATA provided was for defense/aerospace tickers (LMT, RTX, GD, NOC, BA, etc.)
-- The news items summarized by H.2.5 for Persona 1 were:
+- The news items summarized by H.02.5 for Persona 1 were:
   - Trump pleads not guilty (Politics)
   - Behavioral Finance (Finance/arXiv)
   - International Trade Finance (Finance/arXiv)
@@ -203,15 +203,15 @@ The "is_synthetic": true flag reveals a fundamental safety issue:
 - The Summarizer correctly identified no direct trigger among the 5 summarized items to deeply integrate the specific ticker data for LMT, RTX, etc.
 
 #### 3.4 Formatting & Persona
-- **Headlines:** Used H3 format as specified
+- **Headlines:** Used H.03 format as specified
 - **Addressing:** Consistently addressed reader as "you"
 - **Professional Context:** Attempted to use professional context (e.g., "As someone interested in politics and finance..." or "As an aspiring scientist...")
 - **Closing:** Included a "Strategic Insight" for career advancement, reasonably tailored to an aspiring scientist
 - **Instruction Adherence Failure:** Failed to include the mandated personalized greeting establishing its "Chief Intelligence Debrief Officer" role, starting directly with the first news item. This was a consistent failure across both personas.
 
-### 4. Comparison with Original Summarizer (H.1 gpt-4o)
+### 4. Comparison with Original Summarizer (H.01 gpt-4o)
 
-**Note:** "Original Summarizer" refers to the H.1 Summarizer using gpt-4o model, which serves as our baseline for comparison.
+**Note:** "Original Summarizer" refers to the H.01 Summarizer using gpt-4o model, which serves as our baseline for comparison.
 
 #### 4.1 Content Coverage
 - **Original Summarizer:** Summarized all 10 news items, fulfilling the "FOR EVERY NEWS ITEM" instruction
@@ -230,7 +230,7 @@ The "is_synthetic": true flag reveals a fundamental safety issue:
 - **Original Summarizer:** More expensive ($0.02804) but processed all 10 items and provided higher quality
 - **Per-Item Efficiency:** Original summarizer was more efficient per item despite using a more powerful model
 
-## Analysis of H2.5 Session for Persona 3 (Model Architect)
+## Analysis of H.02.5 Session for Persona 3 (Model Architect)
 
 **Recipient Profile (Persona 3):** "Mr. F", Model Architect at Anthropic  
 **Interests:** RLHF, constitutional AI, alignment techniques, anthropic news, AI, Machine learning algorithms, Benchmark techniques, Business, Politics, Science, Philosophy, Physics, Computer Science, intersection of AI and other fields, Github, AI Safety  
@@ -238,15 +238,15 @@ The "is_synthetic": true flag reveals a fundamental safety issue:
 
 ### 1. Overall Session Metrics (Efficiency)
 
-| Metric | Value for H2.5 (Summarizer Only) | H.1 Summarizer (gpt-4o, 4 items) | Notes |
+| Metric | Value for H.02.5 (Summarizer Only) | H.01 Summarizer (gpt-4o, 4 items) | Notes |
 |--------|----------------------------------|------------------------------|-------|
-| **Model** | gpt-4o-mini | gpt-4o | H2.5 used a more efficient model |
-| **Prompt Tokens** | 3,321 | Not specified in H.1 Analysis | H2.5 prompt tokens significantly inflated due to inclusion of extensive errored upstream data |
-| **Total Tokens** | 4,401 (Prompt: 3,321, Completion: 1,080) | 2,478 | H2.5 had higher token usage despite processing similar number of items (5 vs. 4) |
-| **Execution Time** | 18.20 s | Not specified for Summarizer alone | H2.5 was faster with the lighter model |
-| **Cost** | $0.00114 | $0.02188 | H2.5 used a cheaper model but had higher token usage |
+| **Model** | gpt-4o-mini | gpt-4o | H.02.5 used a more efficient model |
+| **Prompt Tokens** | 3,321 | Not specified in H.01 Analysis | H.02.5 prompt tokens significantly inflated due to inclusion of extensive errored upstream data |
+| **Total Tokens** | 4,401 (Prompt: 3,321, Completion: 1,080) | 2,478 | H.02.5 had higher token usage despite processing similar number of items (5 vs. 4) |
+| **Execution Time** | 18.20 s | Not specified for Summarizer alone | H.02.5 was faster with the lighter model |
+| **Cost** | $0.00114 | $0.02188 | H.02.5 used a cheaper model but had higher token usage |
 
-**Note:** These metrics represent only the Summarizer agent, not the full pipeline. Complete pipeline metrics for H2.5 are not available due to upstream failures.
+**Note:** These metrics represent only the Summarizer agent, not the full pipeline. Complete pipeline metrics for H.02.5 are not available due to upstream failures.
 
 ### 2. Pipeline Integrity & Input Quality
 
@@ -260,7 +260,7 @@ This version faced the same critical pipeline integrity issues as with Persona 1
 | **Linkage** | 🔴 FAILURE | "Auto-generated linkage due to error" |
 | **Market Data** | ✅ SUCCESS | Only valid structured input beyond raw news items; contained implied volatility and earnings surprises for defense/aerospace tickers |
 
-Consequently, the Summarizer agent operated under extreme handicap, forced to rely almost exclusively on raw news item text and the recipient persona, rather than the rich analytical inputs intended in the H.2.5 design.
+Consequently, the Summarizer agent operated under extreme handicap, forced to rely almost exclusively on raw news item text and the recipient persona, rather than the rich analytical inputs intended in the H.02.5 design.
 
 ### 3. Evaluation of Summarizer-H25 Output
 
@@ -318,14 +318,14 @@ This section directly uses data from the ## MARKET DATA input (LMT, RTX, GD, BA 
 - **Qualitative Assessment of Market Summary:** The narrative "Current trends indicate a mixed impact..." is a plausible, albeit generic, interpretation of the mixed IV changes and earnings surprises in the synthetic data.
 
 #### 3.4 Formatting & Persona
-- **Headlines:** Used H3 format as specified
+- **Headlines:** Used H.03 format as specified
 - **Addressing:** Consistently addressed reader as "you"
 - **Professional Context:** Used language appropriate for a Model Architect (e.g., referencing "alignment techniques," "RLHF," "constitutional AI")
 - **Closing:** Included a "Strategic Insight" tailored to Persona 3 ("actively engage in the intersection of AI ethics and practical implementations...")
 
-### 4. Comparison with Original Summarizer (H.1 gpt-4o)
+### 4. Comparison with Original Summarizer (H.01 gpt-4o)
 
-**Note:** "Original Summarizer" refers to the H.1 Summarizer using gpt-4o model, which serves as our baseline for comparison.
+**Note:** "Original Summarizer" refers to the H.01 Summarizer using gpt-4o model, which serves as our baseline for comparison.
 
 #### 4.1 Content Coverage
 - **Original Summarizer:** Summarized only 4 news items (IterAlign, OpenRLHF, Conflict between anthropic reasoning, Intersymbolic AI)
@@ -358,7 +358,7 @@ This section directly uses data from the ## MARKET DATA input (LMT, RTX, GD, BA 
 
 ### Scoring & Acceptance Gate
 
-| Tier | Metric | Target | Session Value (H2.5 Pipeline)         | Status | Outcome |
+| Tier | Metric | Target | Session Value (H.02.5 Pipeline)         | Status | Outcome |
 |------|--------|--------|---------------------------------------|--------|---------|
 | 0 | AIR | ≥ 0.25 | N/A (Full pipeline logs not provided) | N/A | N/A |
 | 0 | p95 Latency | ≤ 30 s | N/A (Full pipeline logs not provided) | N/A | N/A |
@@ -371,7 +371,7 @@ This section directly uses data from the ## MARKET DATA input (LMT, RTX, GD, BA 
 
 ### Consistent Findings Across Personas
 
-Both persona tests revealed consistent strengths and weaknesses in the H2.5 system:
+Both persona tests revealed consistent strengths and weaknesses in the H.02.5 system:
 
 #### Strengths:
 - **Resilience:** Produced coherent summaries despite severely compromised inputs
@@ -384,29 +384,29 @@ Both persona tests revealed consistent strengths and weaknesses in the H2.5 syst
   - **Incompleteness:** Processed only 5/10 items, violating the "FOR EVERY NEWS ITEM" instruction
   - **Missed Persona Introduction:** Failed to include the mandated personalized greeting establishing its "Chief Intelligence Debrief Officer" role
 - **Quantitative Claims:** For Persona 1, included potentially misleading quantitative data without proper substantiation
-- **Market Data Integration:** The specific instruction to integrate portfolio delta calculations from MARKET DATA for relevant summarized news items was largely unfulfilled. While Persona 3's summary included a standalone market data overview, neither persona's brief successfully linked this data to the impact assessment of specific, relevant news items (often because such news items were among those not selected for summarization by the H.2.5 Summarizer).
+- **Market Data Integration:** The specific instruction to integrate portfolio delta calculations from MARKET DATA for relevant summarized news items was largely unfulfilled. While Persona 3's summary included a standalone market data overview, neither persona's brief successfully linked this data to the impact assessment of specific, relevant news items (often because such news items were among those not selected for summarization by the H.02.5 Summarizer).
 
 ### System Degradation Trajectory
 
 | Version | Failure Mode | User Experience | Detection Difficulty |
 |---------|--------------|-----------------|---------------------|
-| H.1 | Summarizer processes 40% | Obviously incomplete | Easy - missing content |
-| H.2 | Datetime errors | Visible errors in output | Medium - wrong sorting |
-| H.2.5 | Complete upstream failure | Professional-looking output | **Hard - appears normal** |
+| H.01 | Summarizer processes 40% | Obviously incomplete | Easy - missing content |
+| H.02 | Datetime errors | Visible errors in output | Medium - wrong sorting |
+| H.02.5 | Complete upstream failure | Professional-looking output | **Hard - appears normal** |
 
 **Critical Insight**: Each version made failures less visible while becoming more fundamentally broken.
 
 
->**Note**: For more details about the migration please see [Migration: Type-H.2.5 → Type-H.2.7](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.2.7/migration.md).
+>**Note**: For more details about the migration please see [Migration: Type-H.02.5 → Type-H.02.7](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02.7/migration.md).
 >
->**Migration Context**: While H.2.5 analysis clearly indicated the need to "return to fail-fast architecture," the subsequent H.2.7 iteration took a different approach, pursuing an ambitious expansion of agent capabilities rather than fully embracing the fail-fast principle. This would ultimately lead to new challenges documented in the H.2.7 analysis, further strengthening the case for the architectural changes eventually implemented in H.2.7.3.
+>**Migration Context**: While H.02.5 analysis clearly indicated the need to "return to fail-fast architecture," the subsequent H.02.7 iteration took a different approach, pursuing an ambitious expansion of agent capabilities rather than fully embracing the fail-fast principle. This would ultimately lead to new challenges documented in the H.02.7 analysis, further strengthening the case for the architectural changes eventually implemented in H.02.7.3.
 
 
-### 🚨 Why The H.2.5 Failure Pattern Matters
+### 🚨 Why The H.02.5 Failure Pattern Matters
 
 ```
 Traditional Failure: System crashes → User knows it failed
-H.2.5 Failure: System continues → User trusts bad output
+H.02.5 Failure: System continues → User trusts bad output
 
 This is the same pattern as:
 - Autopilot flying into mountain while showing "ALL OK"
@@ -419,11 +419,11 @@ For a news intelligence system, false confidence is worse than no output.
 
 ## Conclusion
 
-Type-H2.5 represented an ambitious step forward in the evolution of our multi-agent news processing system, particularly with its market data integration capabilities. While the implementation tested showed critical pipeline integrity issues that prevented a full evaluation of its potential, the system demonstrated remarkable resilience in producing coherent and somewhat personalized outputs despite severely compromised inputs.
+Type-H.02.5 represented an ambitious step forward in the evolution of our multi-agent news processing system, particularly with its market data integration capabilities. While the implementation tested showed critical pipeline integrity issues that prevented a full evaluation of its potential, the system demonstrated remarkable resilience in producing coherent and somewhat personalized outputs despite severely compromised inputs.
 
-The comparison between H2.5 and the Original Summarizer highlighted important trade-offs between efficiency and quality, with the Original Summarizer providing deeper personalization at higher cost.
+The comparison between H.02.5 and the Original Summarizer highlighted important trade-offs between efficiency and quality, with the Original Summarizer providing deeper personalization at higher cost.
 
-### H.2.5 Verdict: Architectural Dead End
+### H.02.5 Verdict: Architectural Dead End
 
 **Successes** (Summarizer only): 
 - Resilient output generation from the Summarizer despite upstream failures

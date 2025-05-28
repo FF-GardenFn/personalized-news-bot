@@ -12,11 +12,11 @@ This directory contains detailed analyses of the different versions of the News 
    - Performance metrics and evaluation results
 
 2. [Type-H Models](05.2-Type-H/_Type_H_main_analysis.md): Analysis of the multi-agent news processing system
-   - [H.1](05.2-Type-H/H.1/analysis.md): Initial multi-agent prototype
-   - [H.2](05.2-Type-H/H.2/analysis.md): Enhanced system with shared prompts and synthesis capabilities
-   - [H.2.5](05.2-Type-H/H.2.5/analysis.md): Market data integration and improved chain-of-thought prompting
-   - [H.2.7](05.2-Type-H/H.2.7/analysis.md): Full agent swarm with function-calling and enhanced coordination
-   - [H.2.7.3](05.2-Type-H/H.2.7.3/analysis.md): Modular refactoring with standardized interfaces and robust JSON enforcement
+   - [H.01](05.2-Type-H/H.01/analysis.md): Initial multi-agent prototype
+   - [H.02](05.2-Type-H/H.02/analysis.md): Enhanced system with shared prompts and synthesis capabilities
+   - [H.02.5](05.2-Type-H/H.02.5/analysis.md): Market data integration and improved chain-of-thought prompting
+   - [H.02.7](05.2-Type-H/H.02.7/analysis.md): Full agent swarm with function-calling and enhanced coordination
+   - [H.02.7.3](05.2-Type-H/H.02.7.3/analysis.md): Modular refactoring with standardized interfaces and robust JSON enforcement
 
 ## Methodology
 
@@ -51,15 +51,15 @@ Each analysis file contains a link to its corresponding migration document, whic
 
 To find the appropriate migration document for a specific analysis:
 
-1. Navigate to the analysis file for the version you're interested in (e.g., `05.2-Type-H/H.1/analysis.md`)
+1. Navigate to the analysis file for the version you're interested in (e.g., `05.2-Type-H/H.01/analysis.md`)
 2. Look for a note section near the end of the file that contains a link to the migration document
 3. Follow the link to view the detailed migration information
 
 For example:
-- H.1 analysis links to H.2 migration document
-- H.2 analysis links to H.2.5 migration document
-- H.2.5 analysis links to H.2.7 migration document
-- H.2.7 analysis links to H.2.7.3 migration document
+- H.01 analysis links to H.02 migration document
+- H.02 analysis links to H.02.5 migration document
+- H.02.5 analysis links to H.02.7 migration document
+- H.02.7 analysis links to H.02.7.3 migration document
 
 The migration documents provide valuable insights into the architectural changes, implementation improvements, and performance impacts between versions, complementing the analytical findings in this directory.
 

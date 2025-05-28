@@ -16,7 +16,7 @@ The Summarizer Agent serves as the final stage in the News Bot pipeline, transfo
 
 ## Evolution of Prompting Strategies
 
-### H1 Version (Initial Implementation)
+### H.01 Version (Initial Implementation)
 
 In the earliest version of the News Bot system, the Summarizer Agent created detailed news briefings with a focus on personalization and actionable insights.
 
@@ -66,9 +66,9 @@ Blogs with consistent updates can see traffic growth of over 200% year-on-year i
 Start a blog focused on your research interests and insights into AI or finance trends to engage with like-minded professionals.
 ```
 
-### H2 Version (Improved Structure)
+### H.02 Version (Improved Structure)
 
-In the H2 version, the Summarizer Agent used more structured prompting with clearer instructions and persona guidance.
+In the H.02 version, the Summarizer Agent used more structured prompting with clearer instructions and persona guidance.
 
 #### Prompt
 
@@ -212,9 +212,9 @@ Your summaries must be engaging, information‑dense, and deliver value far beyo
 ```
 
 
-### H2.5 Version (Enhanced Personalization)
+### H.02.5 Version (Enhanced Personalization)
 
-In the H2.5 version, the Summarizer Agent incorporated more sophisticated personalization techniques and improved contextual understanding.
+In the H.02.5 version, the Summarizer Agent incorporated more sophisticated personalization techniques and improved contextual understanding.
 
 #### Prompt
 
@@ -363,9 +363,9 @@ Consider partnerships with AI developers to pilot Intersymbolic AI applications 
 By staying ahead of these developments, particularly in thermodynamics and AI integration, you can position yourself as a leader in mechanical engineering innovation, leveraging cutting-edge technologies to enhance system efficiencies and design capabilities.
 ```
 
-### H2.7.3 Version (Advanced Integration)
+### H.02.7.3 Version (Advanced Integration)
 
-In the H2.7.3 version, the Summarizer Agent evolved into a sophisticated component with a more structured format, clearer organization, and enhanced integration of insights from other agents.
+In the H.02.7.3 version, the Summarizer Agent evolved into a sophisticated component with a more structured format, clearer organization, and enhanced integration of insights from other agents.
 
 #### Response for Persona 3 (Model Architect at Anthropic):
 

@@ -1,8 +1,8 @@
-# Categorizer Agent: H.1 vs H2.7.3
+# Categorizer Agent: H.01 vs H.02.7.3
 
-This document compares the H.1 and H2.7.3 versions of the Categorizer Agent, highlighting the evolution in prompt engineering and its impact on the agent's performance. The Categorizer Agent is responsible for analyzing and categorizing news items based on their topic, importance, and relevance to the recipient's interests.
+This document compares the H.01 and H.02.7.3 versions of the Categorizer Agent, highlighting the evolution in prompt engineering and its impact on the agent's performance. The Categorizer Agent is responsible for analyzing and categorizing news items based on their topic, importance, and relevance to the recipient's interests.
 
-## Version H.1: Initial Implementation
+## Version H.01: Initial Implementation
 
 ### Categorizer Interaction 
 
@@ -151,7 +151,7 @@ Ensure your categorization is tailored to the recipient's profession and interes
 
 ---
 
-## Version H2.7.3: Advanced Implementation
+## Version H.02.7.3: Advanced Implementation
 
 ### Categorizer Interaction 
 
@@ -291,38 +291,38 @@ Ensure your entire response is ONLY the JSON array as described.
 
 ---
 
-**Note on Output Format**: While H2.7.3's prompt explicitly requested a JSON array starting with `[`, the model wrapped it in `{"results": [...]}`. This top-level format compliance remains an active refinement area across the system, though the internal array structure and data quality improved significantly.
+**Note on Output Format**: While H.02.7.3's prompt explicitly requested a JSON array starting with `[`, the model wrapped it in `{"results": [...]}`. This top-level format compliance remains an active refinement area across the system, though the internal array structure and data quality improved significantly.
 
-For detailed performance metrics and further analysis of H2.7.3, including format compliance across all agents, please refer to the [comprehensive analysis](../../05_Analysis/05.2-Type-H/H.2.7.3/analysis.md).
+For detailed performance metrics and further analysis of H.02.7.3, including format compliance across all agents, please refer to the [comprehensive analysis](../../05_Analysis/05.2-Type-H/H.02.7.3/analysis.md).
 
 ---
 
 
 ## Analysis of Key Differences
 
-The evolution from H.1 to H2.7.3 demonstrates significant improvements in the Categorizer Agent's capabilities through strategic prompt engineering. This section analyzes the key differences and their impact on performance metrics.
+The evolution from H.01 to H.02.7.3 demonstrates significant improvements in the Categorizer Agent's capabilities through strategic prompt engineering. This section analyzes the key differences and their impact on performance metrics.
 
 ### Prompt Engineering Improvements
 
 1. **Structural Changes**:
-   - **H.1**: Comprehensive prompt with detailed recipient profiles, persona guidance, and basic categorization instructions
-   - **H2.7.3**: Focused, modular design with explicit formatting requirements and few-shot examples
+   - **H.01**: Comprehensive prompt with detailed recipient profiles, persona guidance, and basic categorization instructions
+   - **H.02.7.3**: Focused, modular design with explicit formatting requirements and few-shot examples
 
 2. **Instruction Refinement**:
-   - **H.1**: Simple 1-5 integer scoring system with minimal guidance
-   - **H2.7.3**: Sophisticated scoring schema with descriptive anchors and a time-decay formula (`importance: 1 trivial ↔ 5 systemic; multiply raw impact by e^(-age_days/5)`)
+   - **H.01**: Simple 1-5 integer scoring system with minimal guidance
+   - **H.02.7.3**: Sophisticated scoring schema with descriptive anchors and a time-decay formula (`importance: 1 trivial ↔ 5 systemic; multiply raw impact by e^(-age_days/5)`)
 
 3. **Output Format**:
-   - **H.1**: Basic JSON structure with minimal formatting guidance
-   - **H2.7.3**: Strict JSON formatting requirements with explicit error prevention instructions
+   - **H.01**: Basic JSON structure with minimal formatting guidance
+   - **H.02.7.3**: Strict JSON formatting requirements with explicit error prevention instructions
 
 4. **Categorization Approach**:
-   - **H.1**: Open-ended category assignment
-   - **H2.7.3**: Standardized category list (`Allowed categories: Technology | Science | Defence | Politics | Markets | Other`)
+   - **H.01**: Open-ended category assignment
+   - **H.02.7.3**: Standardized category list (`Allowed categories: Technology | Science | Defence | Politics | Markets | Other`)
 
 ### Performance Metrics Comparison
 
-| Metric | H.1 | H2.7.3 | Change | Impact                                    |
+| Metric | H.01 | H.02.7.3 | Change | Impact                                    |
 |--------|-----|--------|--------|-------------------------------------------|
 | Prompt Tokens | 1,304 | 1,582 | +21.3% | Increased due to richer instructions      |
 | Completion Tokens | 830 | 409 | -50.7% | Significant reduction in output verbosity |
@@ -350,9 +350,9 @@ These improvements directly address key metrics in our [Evaluation Framework](..
 
 ### Qualitative Improvements
 
-Beyond the quantitative metrics, the H2.7.3 version demonstrates several qualitative improvements:
+Beyond the quantitative metrics, the H.02.7.3 version demonstrates several qualitative improvements:
 
-1. **Scoring Precision**: Float-based scoring (e.g., 3.8, 4.5) versus integer-only scores in H.1
+1. **Scoring Precision**: Float-based scoring (e.g., 3.8, 4.5) versus integer-only scores in H.01
 2. **Time-Sensitivity**: Incorporation of content age into importance calculations
 3. **Standardization**: Consistent category taxonomy across all outputs
 4. **Reasoning Transparency**: More explicit "why" explanations for categorizations
