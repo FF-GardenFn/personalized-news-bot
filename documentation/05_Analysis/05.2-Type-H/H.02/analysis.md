@@ -224,7 +224,7 @@ The following sections provide in-depth analysis of Type-H.02 performance with d
 - **Output Quality:** Produced structured categorization with id, category, importance, relevance, and justification
 - **Key Issues:**
   - **Datetime Error:** Importance score calculation severely compromised
-  - Implausible scores (e.g., "IterAlign" paper ~39 days old with importance: 4.9)
+  - Implausible scores (e.g., "IterAlign" paper ~390 days old with importance: 4.9)
 - **Relevance Assessment:**
   - Excellent for core AI topics (all rated 5)
   - Lower scores for philosophical papers compared to H.01 (e.g., "anthropic reasoning" got 2 vs. 4 in H.01)
