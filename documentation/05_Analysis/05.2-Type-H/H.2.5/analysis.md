@@ -397,7 +397,7 @@ Both persona tests revealed consistent strengths and weaknesses in the H2.5 syst
 **Critical Insight**: Each version made failures less visible while becoming more fundamentally broken.
 
 
->**Note**: For more details about the migration please see [H.2.7 Migration Document](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.2.7/migration.md).
+>**Note**: For more details about the migration please see [Migration: Type-H.2.5 → Type-H.2.7](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.2.7/migration.md).
 >
 >**Migration Context**: While H.2.5 analysis clearly indicated the need to "return to fail-fast architecture," the subsequent H.2.7 iteration took a different approach, pursuing an ambitious expansion of agent capabilities rather than fully embracing the fail-fast principle. This would ultimately lead to new challenges documented in the H.2.7 analysis, further strengthening the case for the architectural changes eventually implemented in H.2.7.3.
 
