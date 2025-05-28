@@ -57,7 +57,7 @@ Type-H2.5 also introduced a more efficient model selection, using gpt-4o-mini fo
 | **Execution Time** | 24.50 s (Persona 1), 18.20 s (Persona 3) | Not specified for Summarizer alone | Execution time varies by persona |
 | **Cost** | $0.00117 (Persona 1), similar for Persona 3 | $0.02118 (estimated) | H2.5 used a cheaper model but had higher token usage |
 
-**Note:** These metrics represent only the Summarizer agent, not the full pipeline. Complete pipeline metrics for H2.5 are not available due to upstream failures.
+**Note:** These metrics represent only the Summarizer agent, not the full pipeline. Complete pipeline metrics for H2.5 are not available due to upstream failures.Thus leading the complete pipeline metrics to be  equal to the summarizer's.
 
 ### 2. Pipeline Integrity & Input Quality
 
