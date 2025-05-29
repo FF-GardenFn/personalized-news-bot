@@ -2,6 +2,7 @@
 
 This document summarizes the migration from Version H.02.7 to Version H.02.7.3.
 The primary goals for Version H.02.7.3 were set in the [Migration Plan for Version H.02.7.3 (located in ../H.02.7/migration.md)](../H.02.7/migration.md).
+Version H.02.7.3 aimed to implement a sophisticated multi-agent system as detailed in the [H.02.7.3 Agent Architecture Description](./architecture_diagram.md). While the full design faced implementation challenges, the architectural principles outlined were key to this iteration.
 
 ## Version H.02.7.3 Key Outcomes & Performance
 - **Overall Verdict:** REJECT - Critical JSON failures (67% agents) and resource explosion (2x budget)
