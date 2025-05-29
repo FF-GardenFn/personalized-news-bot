@@ -179,21 +179,6 @@ The project's future development is focused on (see [ROADMAP.md](../../02_Standa
 3.  **New Metrics**: Triangulation Divergence, Sentiment Neutrality, Temporal Recall.
 4.  **QA Improvements**: Quarterly audits, advanced human evaluation QA, formalized CI loop for QA.
 
-## Using the News Bot
-
-### Current Deployment
-
-The News Bot is currently deployed as a personal tool with a small group of beta testers (friends).
-
-### Integration Options
-
-Primary delivery is via Email. The system is designed with flexibility for future integration methods.
-
-### Customization
-
-1.  **Recipient Profiles**: Defining interests, professional needs, and context.
-2.  **Delivery Preferences**: Setting frequency, format, and timing.
-
 ## Conclusion
 
 The News Bot represents a significant research and development effort in personalized news curation, leveraging AI to transform information overload into actionable intelligence. The journey through multi-agent architectures has yielded valuable insights and highlighted critical challenges, particularly in ensuring robust inter-agent communication (e.g., JSON reliability) and overall pipeline integrity at scale.
