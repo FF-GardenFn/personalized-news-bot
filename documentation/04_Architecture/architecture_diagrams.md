@@ -52,6 +52,7 @@ This document provides visual representations of the News Bot system architectur
 │   │                       Delivery Interface                      │          │
 │   └───────────────────────────────────────────────────────────────┘          │
 └──────────────────────────────────────────────────────────────────────────────┘
+```
 
 ## Agent Interaction Flow
 
@@ -118,6 +119,7 @@ This document provides visual representations of the News Bot system architectur
                │    Personalized     │
                │   News Briefing     │
                └─────────────────────┘
+
 ```
 
 ## Data Flow Diagram
@@ -177,6 +179,7 @@ This document provides visual representations of the News Bot system architectur
                      ┌───────────────┐
                      │    Reader     │
                      └───────────────┘
+
 ```
 
 ## Component Architecture
@@ -213,6 +216,7 @@ This document provides visual representations of the News Bot system architectur
 │  └─────────────────┘          └─────────────────────────────┘   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
+
 ```
 
 ## Agent Architecture
@@ -249,6 +253,7 @@ This document provides visual representations of the News Bot system architectur
 │  └─────────────────┘          └─────────────────────────────┘   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
+
 ```
 
 ## Prompt Template System
@@ -285,8 +290,8 @@ This document provides visual representations of the News Bot system architectur
 │  └─────────────────┘          └─────────────────────────────┘   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
-```
 
+```
 ## Evolution of Architecture
 
 ```
@@ -487,7 +492,6 @@ This document provides visual representations of the News Bot system architectur
 ```
 
 ## Future Deployment Architecture Could Include 
-
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                    Kubernetes Cluster                           │
@@ -546,6 +550,6 @@ This document provides visual representations of the News Bot system architectur
 │  └─────────────────┘          └─────────────────────────────┘   │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
-```
+
 
 These diagrams provide visual representations of the News Bot system's architecture, component interactions, and evolution over time. They complement the detailed descriptions in the system architecture document and help reviewers understand the system's design and operation.
