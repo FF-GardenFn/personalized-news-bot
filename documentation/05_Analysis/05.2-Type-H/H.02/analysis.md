@@ -333,4 +333,4 @@ Both persona tests revealed consistent strengths and weaknesses in the H.02 syst
 Due to critical functional issues and Hard Fails on Tier 0/1 targets, H.02 cannot proceed to production.
 
 
->**Note**: For more details about the migration please see [H.02.5 Migration Document](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02.5/migration.md).
+>**Note**: For more details about the migration please see [Migration: Type-H.02 → Type-H.02.5](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02/migration.md).
