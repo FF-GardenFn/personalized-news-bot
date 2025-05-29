@@ -357,7 +357,7 @@ Both persona tests revealed consistent strengths and weaknesses in the H.01 syst
 | Recommender | Novel & persona-aligned topic suggestions | Generated valuable, tailored recommendations. |
 | Summarizer | Strong personalization (on processed items) | Critical Functional Fail: Incomplete (40-50% data loss). |
 
->**Note**: For more details about the migration please see [Migration: Type-H.01 → Type-H.02](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02/migration.md).
+>**Note**: For more details about the migration please see [Migration: Type-H.01 → Type-H.02](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.01/migration.md).
 
 The H.01 prototype demonstrates the potential of a multi-agent approach but requires significant technical improvements before it can meet all Tier 0 and Tier 1 targets. These findings inform future development, with a focus on implementing shared system-level prompts and improving agent coordination.
 

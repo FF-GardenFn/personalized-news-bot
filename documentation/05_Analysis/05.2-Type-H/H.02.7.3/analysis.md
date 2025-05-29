@@ -202,6 +202,7 @@ It's important to note that H.02.7.3 was specifically designed as an attempt to 
 
 The system's current state is too premature in its core mechanics to fully assess the true value of its expanded agent swarm. However, the excellent performance of SummarizerLogic, along with promising aspects of the Synthesizer and Linkage agents, provides valuable insights for future iterations. The ArXivSearcher also shows potential despite its current implementation challenges. These successful elements should inform the architectural redesign recommended above.
 
+>**Note**: For more details about the migration please see [Migration: Type-H.02.7.3](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02.7.3/migration.md)
 
 
 ## Appendix: Detailed Agent Analysis

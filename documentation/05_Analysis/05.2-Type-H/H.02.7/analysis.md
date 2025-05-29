@@ -271,4 +271,4 @@ The experience with H.02.7 highlighted the critical importance of robust output 
 
 Most critically, H.02.7 revealed that our system had evolved a dangerous capability: generating convincing, persona-specific intelligence briefings from no input data. This **"fiction generation" mode represents a fundamental failure more severe than crashes or errors - it's active misinformation generation**. Detection is only possible through manual verification, making this an insidious risk that could lead users to make real-world decisions based on fabricated information.
 
->**Note**: For more details about the migration please see [Migration Analysis: Type-H.02.7 → Type-H.02.7.3](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02.7.3/migration.md).
+>**Note**: For more details about the migration please see [Migration Analysis: Type-H.02.7 → Type-H.02.7.3](../../../04_Architecture/04.1_Types/04.1.2-Type-H/H.02.7/migration.md).
