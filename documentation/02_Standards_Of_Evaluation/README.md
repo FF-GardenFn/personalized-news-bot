@@ -89,20 +89,6 @@ When implementing or reviewing evaluations, start with the Framework to understa
 
 For the most accurate representation of current performance, please refer to the version-specific Analysis Reports in the [05_Analysis/](../05_Analysis/) directory.
 
-## Contributing to These Standards
-
-The evaluation standards are designed to evolve as the News Bot system matures. When proposing changes:
-
-1. Ensure changes align with the core design principles in the Evaluation Framework
-2. Document the rationale for any metric additions or modifications
-3. Update all relevant documents to maintain consistency
-4. Add entries to change logs where applicable
-5. Consider backward compatibility for historical comparisons
-
-## Contact
-
-For questions or clarifications about the evaluation standards, please contact the Development and Quality Assurance Lead.
-
 ---
 
 > *"Measure what costs money or changes behaviour—everything else is commentary."*
